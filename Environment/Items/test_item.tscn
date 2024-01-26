@@ -12,6 +12,7 @@ size = Vector2(71, 71)
 
 [node name="TestItem" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_o58at")
+continuous_cd = 2
 linear_damp = 1.0
 angular_damp = 1.0
 
