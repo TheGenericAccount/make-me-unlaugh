@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://1oimmi4j5d6n"]
+
+[ext_resource type="Texture2D" uid="uid://d21o4hqhdhtbd" path="res://Environment/Item.png" id="1_cg04a"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="2_34i4s"]
+[ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="3_pqqhx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
+bounce = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvneb"]
+size = Vector2(71, 71)
+
+[node name="TestItem" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_o58at")
+linear_damp = 1.0
+angular_damp = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cg04a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -1.5)
+shape = SubResource("RectangleShape2D_yvneb")
+
+[node name="DragComponent" parent="." instance=ExtResource("2_34i4s")]
+
+[node name="RewardComponent" type="Node2D" parent="."]
+script = ExtResource("3_pqqhx")

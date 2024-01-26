@@ -1,14 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cquahwesqdl37"]
+[gd_scene load_steps=9 format=3 uid="uid://cquahwesqdl37"]
 
-[ext_resource type="Texture2D" uid="uid://d21o4hqhdhtbd" path="res://Environment/Item.png" id="1_he2ld"]
-[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="2_i5kpo"]
+[ext_resource type="PackedScene" uid="uid://1oimmi4j5d6n" path="res://Environment/Items/test_item.tscn" id="1_g12ci"]
 [ext_resource type="Texture2D" uid="uid://dbese6072xpsw" path="res://Environment/Box.png" id="3_trlrp"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
-bounce = 0.1
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvneb"]
-size = Vector2(71, 71)
+[ext_resource type="Script" path="res://Levels/Spawner.gd" id="3_x0mre"]
+[ext_resource type="Script" path="res://Levels/GoalArea.gd" id="4_t85w3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubosm"]
 size = Vector2(127, 127)
@@ -16,67 +11,111 @@ size = Vector2(127, 127)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbvx3"]
 size = Vector2(127, 127)
 
-[node name="Game" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pf08"]
+size = Vector2(127, 126)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(343, 323)
-physics_material_override = SubResource("PhysicsMaterial_o58at")
-linear_damp = 1.0
-angular_damp = 1.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pymlq"]
+size = Vector2(127, 127)
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-texture = ExtResource("1_he2ld")
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(2.5, -1.5)
-shape = SubResource("RectangleShape2D_yvneb")
+[node name="ItemSpawner" type="Node2D" parent="."]
+position = Vector2(401, 96)
+script = ExtResource("3_x0mre")
+RESOURCE_TO_SPAWN = ExtResource("1_g12ci")
+SPAWN_INSTANTLY = true
+SPAWN_INTERVAL = 2.0
+MAX_TO_SPAWN = 10
 
-[node name="DragComponent" parent="RigidBody2D" instance=ExtResource("2_i5kpo")]
+[node name="Timer" type="Timer" parent="ItemSpawner"]
+autostart = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(988, 1093)
-scale = Vector2(22.32, 1)
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment"]
+position = Vector2(-416, 1112)
+scale = Vector2(27.28, 1)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D"]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_ubosm")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D"]
 texture = ExtResource("3_trlrp")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Environment"]
 position = Vector2(1102, -44)
 scale = Vector2(22.32, 1)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D4"]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_ubosm")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+[node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D4"]
 texture = ExtResource("3_trlrp")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1918, 454)
+[node name="StaticBody2D2" type="StaticBody2D" parent="Environment"]
+position = Vector2(1365, -37)
 scale = Vector2(0.919996, 13.96)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D2"]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_sbvx3")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D2"]
 texture = ExtResource("3_trlrp")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Environment"]
 position = Vector2(-25, 508)
 scale = Vector2(0.919996, 13.96)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D3"]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_sbvx3")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+[node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D3"]
 texture = ExtResource("3_trlrp")
+
+[node name="GoalArea" type="Area2D" parent="."]
+position = Vector2(1518, 988)
+script = ExtResource("4_t85w3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_7pf08")
+
+[node name="Sprite2D" type="Sprite2D" parent="GoalArea"]
+self_modulate = Color(0, 0.596078, 0.482353, 1)
+texture = ExtResource("3_trlrp")
+
+[node name="Treadmill" type="StaticBody2D" parent="."]
+position = Vector2(1232, 999)
+scale = Vector2(2.40037, -0.469347)
+constant_linear_velocity = Vector2(500, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Treadmill"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_pymlq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Treadmill"]
+self_modulate = Color(0, 0, 0, 1)
+texture = ExtResource("3_trlrp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1300.0
+offset_top = -227.0
+offset_right = 2192.0
+offset_bottom = 1207.0
+color = Color(0, 0.541176, 0.352941, 1)
+
+[connection signal="timeout" from="ItemSpawner/Timer" to="ItemSpawner" method="_on_timer_timeout"]
+[connection signal="body_entered" from="GoalArea" to="GoalArea" method="_on_body_entered"]
