@@ -9,7 +9,10 @@ var fulfilled:bool:
 	get:
 		return inserted_items>=needs_to_fulfill
 	set(value):
-		inserted_items=value as int*needs_to_fulfill
+		inserted_items=value as int * needs_to_fulfill
+		#if value == false:
+		#	for body in get_overlapping_bodies():
+		#		_body_entered.call_deferred(body)
 
 signal item_inserted()
 
@@ -29,4 +32,5 @@ func _body_entered(body:Node2D):
 		return
 	body.queue_free()
 	inserted_items+=1;
-	item_inserted.emit()
+	print("fulfilled ",body.name)
+	call_deferred("emit_signal", "item_inserted")

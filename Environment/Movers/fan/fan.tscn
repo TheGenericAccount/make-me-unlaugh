@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://dyqwcf0xohajt"]
+
+[ext_resource type="Script" path="res://Environment/Movers/fan/fan.gd" id="1_ui0ix"]
+[ext_resource type="Texture2D" uid="uid://bpskjy2ai3bht" path="res://Environment/Movers/fan/fan2.png" id="2_rchow"]
+[ext_resource type="Texture2D" uid="uid://c21m6yomeg8tb" path="res://Environment/Movers/fan/fan3.png" id="3_fhise"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_ke77q"]
+[ext_resource type="Texture2D" uid="uid://w3cvdsx8bfne" path="res://Environment/Movers/fan/fan4.png" id="4_4rist"]
+[ext_resource type="Texture2D" uid="uid://hn00jjvmsm0" path="res://Environment/Movers/fan/fan5.png" id="5_1x6de"]
+[ext_resource type="Texture2D" uid="uid://db7l8w3y45vp5" path="res://Environment/Movers/fan/fan6.png" id="6_cbb0m"]
+[ext_resource type="Texture2D" uid="uid://druso5xgwn02q" path="res://Environment/Movers/fan/fan7.png" id="7_6c7rm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pm43g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rchow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fhise")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4rist")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1x6de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cbb0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6c7rm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 40.0
+}]
+
+[node name="Fan" type="RigidBody2D"]
+disable_mode = 1
+collision_mask = 3
+mass = 3.0
+can_sleep = false
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+continuous_cd = 2
+max_contacts_reported = 20
+contact_monitor = true
+linear_damp = 1.0
+angular_damp = 80.0
+script = ExtResource("1_ui0ix")
+min_force = 2000.0
+
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pm43g")
+autoplay = "default"
+frame_progress = 0.211108
+
+[node name="DragComponent" parent="." instance=ExtResource("3_ke77q")]
+MOUSE_CLOSE_DAMP = 80.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-48, -5, -26, -19, 5, -22, 10, -59, 17, -66, 33, -66, 43, -58, 54, -36, 54, 37, 46, 57, 22, 66, 9, 60, 3, 22, -44, 8)
+
+[node name="WindArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WindArea"]
+polygon = PackedVector2Array(41, -62, 400, -232, 412, 201, 54, 48)

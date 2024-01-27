@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b87q3f8c22b6h"]
+
+[ext_resource type="Script" path="res://Environment/Items/Tear/TearItem.gd" id="1_f16ss"]
+[ext_resource type="Texture2D" uid="uid://ddq5jy57t1al2" path="res://Environment/Items/Tear/tearjar.png" id="2_6akw3"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_0asi6"]
+[ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_33gbb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
+bounce = 0.1
+
+[node name="TearItem" type="RigidBody2D"]
+collision_mask = 3
+mass = 1.3
+physics_material_override = SubResource("PhysicsMaterial_o58at")
+continuous_cd = 2
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_f16ss")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6akw3")
+
+[node name="DragComponent" parent="." instance=ExtResource("3_0asi6")]
+
+[node name="RewardComponent" type="Node2D" parent="."]
+script = ExtResource("4_33gbb")
+type = "tear-item"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-27, -20, -27, 29, 28, 32, 27, -20, 22, -20, 22, -30, -23, -31, -24, -20)

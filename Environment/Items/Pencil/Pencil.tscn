@@ -10,6 +10,7 @@ bounce = 0.1
 
 [node name="Pencil" type="RigidBody2D"]
 collision_mask = 3
+mass = 0.8
 physics_material_override = SubResource("PhysicsMaterial_o58at")
 continuous_cd = 2
 linear_damp = 1.0

@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://beli2n684dlmf"]
+
+[ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="1_gjj1d"]
+[ext_resource type="Texture2D" uid="uid://bpskjy2ai3bht" path="res://Environment/Movers/fan/fan2.png" id="2_goaip"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_c5lky"]
+[ext_resource type="Script" path="res://Environment/UI/Treadmill/ConveyorComponent.gd" id="4_qqunb"]
+[ext_resource type="PackedScene" uid="uid://dyqwcf0xohajt" path="res://Environment/Movers/fan/fan.tscn" id="5_kpwfb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
+bounce = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfem1"]
+size = Vector2(128, 130)
+
+[node name="ConveyorBox" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_o58at")
+lock_rotation = true
+continuous_cd = 2
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_gjj1d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_goaip")
+
+[node name="DragComponent" parent="." instance=ExtResource("3_c5lky")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_kfem1")
+
+[node name="ConveyorComponent" type="Node2D" parent="."]
+script = ExtResource("4_qqunb")
+item_to_spawn = ExtResource("5_kpwfb")
+angle_randomness = 180.0

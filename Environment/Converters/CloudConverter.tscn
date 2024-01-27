@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://ba0wgttcxqtsu"]
+
+[ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="1_u7qvo"]
+[ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="2_swfh8"]
+[ext_resource type="Script" path="res://Environment/Items/Tear/TearItem.gd" id="3_0q260"]
+[ext_resource type="Script" path="res://Levels/ConverterSpawn.gd" id="5_5d8am"]
+[ext_resource type="PackedScene" uid="uid://jy1komwamcpy" path="res://Environment/Items/Steam/SteamItem.tscn" id="5_mxorq"]
+[ext_resource type="Texture2D" uid="uid://dkhxdogl761v6" path="res://Environment/Converters/steamer.png" id="7_jktt6"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="9_uxhuk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt0jo"]
+size = Vector2(123, 127)
+
+[node name="CloudConverter" type="RigidBody2D"]
+collision_mask = 3
+lock_rotation = true
+freeze = true
+continuous_cd = 2
+script = ExtResource("1_u7qvo")
+
+[node name="PickupTop" type="Area2D" parent="."]
+script = ExtResource("2_swfh8")
+needs_to_fulfill = 2
+accepted_items = Array[Script]([ExtResource("3_0q260")])
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupTop"]
+polygon = PackedVector2Array(-54, -73, -3, -42, 59, -71)
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(84, 2)
+script = ExtResource("5_5d8am")
+resource_to_spawn = ExtResource("5_mxorq")
+initial_velocity = Vector2(250, -200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -3.5)
+shape = SubResource("RectangleShape2D_rt0jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("7_jktt6")
+
+[node name="DragComponent" parent="." instance=ExtResource("9_uxhuk")]

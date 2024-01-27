@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bst0cfjyx2p5d" path="res://Environment/Boxes/cagebox.png" id="2_74xua"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_ubk6n"]
 [ext_resource type="Script" path="res://Environment/UI/Treadmill/ConveyorComponent.gd" id="5_vpql4"]
-[ext_resource type="PackedScene" uid="uid://brfv1oxwe3r4f" path="res://Environment/Converters/converter.tscn" id="6_hb5re"]
+[ext_resource type="PackedScene" uid="uid://brfv1oxwe3r4f" path="res://Environment/Converters/DogConverter.tscn" id="6_hb5re"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
 bounce = 0.1

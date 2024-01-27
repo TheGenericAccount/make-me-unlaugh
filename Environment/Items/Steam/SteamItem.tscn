@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://jy1komwamcpy"]
+
+[ext_resource type="Script" path="res://Environment/Items/Tear/TearItem.gd" id="1_8cl3n"]
+[ext_resource type="Texture2D" uid="uid://bsl4qw4l5o3q6" path="res://Environment/Items/Steam/depressionsteam.png" id="2_c2owi"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_3da2e"]
+[ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_7fjkk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
+bounce = 0.1
+
+[node name="SteamItem" type="RigidBody2D"]
+collision_mask = 3
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_o58at")
+continuous_cd = 2
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_8cl3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_c2owi")
+
+[node name="DragComponent" parent="." instance=ExtResource("3_3da2e")]
+
+[node name="RewardComponent" type="Node2D" parent="."]
+script = ExtResource("4_7fjkk")
+type = "steam-item"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, -5, -32, 17, -17, 32, 13, 32, 32, 16, 32, -5, 17, -21, 17, -30, -17, -30, -18, -20)

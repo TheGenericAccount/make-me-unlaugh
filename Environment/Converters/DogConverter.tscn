@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://brfv1oxwe3r4f"]
+
+[ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="1_13ojq"]
+[ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="2_bax3h"]
+[ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="3_n20qg"]
+[ext_resource type="Script" path="res://Environment/Items/Pencil/Pencil.gd" id="4_sehpy"]
+[ext_resource type="Script" path="res://Levels/ConverterSpawn.gd" id="5_yes33"]
+[ext_resource type="PackedScene" uid="uid://bmvi18i5nm2k2" path="res://Environment/Items/DogItem/DogItem.tscn" id="6_821yw"]
+[ext_resource type="PackedScene" uid="uid://b87q3f8c22b6h" path="res://Environment/Items/Tear/TearItem.tscn" id="7_rqsk5"]
+[ext_resource type="Texture2D" uid="uid://brhbmfx2aamlq" path="res://Environment/Converters/puppycage.png" id="8_gudn1"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="9_phfqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt0jo"]
+size = Vector2(123, 127)
+
+[node name="DogConverter" type="RigidBody2D"]
+collision_mask = 3
+lock_rotation = true
+freeze = true
+continuous_cd = 2
+script = ExtResource("1_13ojq")
+
+[node name="PickupLeft" type="Area2D" parent="."]
+script = ExtResource("2_bax3h")
+accepted_items = Array[Script]([ExtResource("3_n20qg")])
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupLeft"]
+polygon = PackedVector2Array(-67, -47, -46, -2, -67, 46)
+
+[node name="PickupRight" type="Area2D" parent="."]
+script = ExtResource("2_bax3h")
+accepted_items = Array[Script]([ExtResource("4_sehpy")])
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupRight"]
+polygon = PackedVector2Array(-51, -69, -3, -42, 51, -69)
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(84, 2)
+script = ExtResource("5_yes33")
+resource_to_spawn = ExtResource("6_821yw")
+initial_velocity = Vector2(500, 100)
+
+[node name="Spawner2" type="Node2D" parent="."]
+position = Vector2(0, 77)
+script = ExtResource("5_yes33")
+resource_to_spawn = ExtResource("7_rqsk5")
+probability = 0.3
+rotation_spread = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -3.5)
+shape = SubResource("RectangleShape2D_rt0jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("8_gudn1")
+
+[node name="DragComponent" parent="." instance=ExtResource("9_phfqn")]
