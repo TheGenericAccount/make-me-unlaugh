@@ -1,6 +1,6 @@
 extends Node2D
 class_name RewardComponent
-@export var reward:float
+@export var type:String
 
 func assign_reward():
-	ScoreCounter.laugh-=reward
+	PriceManager.sell(type)

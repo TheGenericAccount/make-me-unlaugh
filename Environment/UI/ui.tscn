@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bwu3w67ptxvt3"]
+[gd_scene load_steps=34 format=3 uid="uid://bwu3w67ptxvt3"]
 
 [ext_resource type="Texture2D" uid="uid://r0tbkp3upl8r" path="res://Environment/UI/UI/Happy_meter1_NEWNEW.png" id="2_3jva2"]
 [ext_resource type="Texture2D" uid="uid://xre0cct46j7c" path="res://Environment/UI/UI/Happy_meter2.png" id="2_vy5l1"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cq3e3hv8eos2e" path="res://Environment/UI/UI/CityState/City_State_Sad2.png" id="22_ex27g"]
 [ext_resource type="Texture2D" uid="uid://ckw55ws7m5fps" path="res://Environment/UI/UI/CityState/City_State_Neutral.png" id="23_vhwlf"]
 [ext_resource type="Texture2D" uid="uid://caov8chodcfmk" path="res://Environment/UI/UI/UI_Main_background.png" id="24_q1wpk"]
+[ext_resource type="Script" path="res://Environment/UI/MainBg.gd" id="24_yon14"]
 
 [sub_resource type="Animation" id="Animation_x8p0x"]
 length = 0.001
@@ -213,6 +214,18 @@ offset_top = 227.0
 offset_right = 620.0
 offset_bottom = 1307.0
 texture = ExtResource("24_q1wpk")
+script = ExtResource("24_yon14")
+
+[node name="Supply" type="Label" parent="MainBg"]
+layout_mode = 0
+offset_left = 1675.0
+offset_top = 296.0
+offset_right = 1882.0
+offset_bottom = 999.0
+
+[node name="SupplyTimer" type="Timer" parent="MainBg"]
+wait_time = 6.0
+autostart = true
 
 [node name="Main" type="TextureRect" parent="."]
 layout_mode = 0
@@ -223,3 +236,4 @@ offset_bottom = 1307.0
 texture = ExtResource("4_wchga")
 
 [connection signal="timeout" from="ProgressTexture/Timer" to="ProgressTexture" method="_on_timer_timeout"]
+[connection signal="timeout" from="MainBg/SupplyTimer" to="MainBg" method="_on_supply_timer_timeout"]

@@ -23,7 +23,7 @@ texture = ExtResource("2_3vae8")
 
 [node name="RewardComponent" type="Node2D" parent="."]
 script = ExtResource("4_n1a7u")
-reward = 50.0
+type = "dog-item"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-32, -18, -32, -7, -11, 31, -3, 31, 32, 11, 33, 5, 3, -34)
