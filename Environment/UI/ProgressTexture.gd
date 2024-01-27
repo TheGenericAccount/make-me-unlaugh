@@ -1,20 +1,25 @@
 class_name ScoreCounter
 extends TextureProgressBar
 
-const MULTIPLIER_BASE = 1
-static var timer:float = 1.00:
+const BASE_MULTIPLIER = 1
+const MAX_MULTIPLIER = 10
+const MULTIPLIER_EXP = 1.1
+const MULTIPLIER_TIME = 5
+
+static var laugh:float = 1.00:
 	set(val):
-		timer=clamp(val, 0.0 ,100.0)
-static var multiplier:float = MULTIPLIER_BASE
-# Called when the node enters the scene tree for the first time.
+		laugh=clamp(val, 0.0 ,100.0)
+static var multiplier:float = BASE_MULTIPLIER
+
 func _ready():
 	value=0
+	$Timer.wait_time = MULTIPLIER_TIME
+	$Timer.start()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	timer+=delta*multiplier
-	value=timer
-	if timer < 20:
-		multiplier *= 1.01
+	laugh+=delta*multiplier
+	value=laugh
 
+func _on_timer_timeout():
+	if multiplier < MAX_MULTIPLIER:
+		multiplier *= MULTIPLIER_EXP
