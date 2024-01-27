@@ -1,4 +1,4 @@
-extends Node2D
+class_name DragComponent extends Node2D
 
 
 static var currently_dragged:RigidBody2D=null;
