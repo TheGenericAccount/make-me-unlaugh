@@ -22,7 +22,9 @@ func process_fulfill():
 
 
 func reward():
-	pass
+	for pickup_point in pickup_points:
+		pickup_point.spawn()
+	#for spawn_point in spawn_points
 
 func is_fulfilled()->bool:
 	for pickup_point in pickup_points:

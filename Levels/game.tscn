@@ -28,6 +28,7 @@ size = Vector2(123, 127)
 [node name="Game" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 
 [node name="Planks" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
