@@ -7,5 +7,4 @@ class_name ConverterSpawn extends Node2D
 func spawn()->void:
 	var instance:Node2D=resource_to_spawn.instantiate()
 	add_child(instance)
-	instance.global_position.x+=randf_range(-x_spread, x_spread)
 	instance.global_rotation+=randf_range(0, 360)
