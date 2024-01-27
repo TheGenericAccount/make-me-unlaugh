@@ -2,7 +2,7 @@ class_name ScoreCounter
 extends TextureProgressBar
 
 const MULTIPLIER_BASE = 1
-static var timer:float = 0.00:
+static var timer:float = 1.00:
 	set(value):
 		return clamp(value, 0 ,100)
 static var multiplier:float = MULTIPLIER_BASE
