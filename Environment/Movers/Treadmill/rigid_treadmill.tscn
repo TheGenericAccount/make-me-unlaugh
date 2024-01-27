@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://qcfhtceusiqq"]
 
 [ext_resource type="Script" path="res://Environment/Movers/Treadmill/Treadmill.gd" id="1_phkl5"]
-[ext_resource type="Texture2D" uid="uid://dbese6072xpsw" path="res://Environment/Box.png" id="2_o7ujl"]
+[ext_resource type="Texture2D" uid="uid://cn6tp3s0gckxn" path="res://Environment/Movers/Treadmill/humanconveyer.png" id="2_ghehm"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_jy6bs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yjj3a"]
-size = Vector2(307, 59)
+size = Vector2(228, 28)
 
 [node name="RigidTreadmill" type="RigidBody2D"]
 mass = 10.0
@@ -16,13 +16,15 @@ angular_damp = 80.0
 script = ExtResource("1_phkl5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+position = Vector2(12, 63)
 shape = SubResource("RectangleShape2D_yjj3a")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 self_modulate = Color(0, 0, 0, 1)
-scale = Vector2(2.40037, -0.469347)
-texture = ExtResource("2_o7ujl")
+texture = ExtResource("2_ghehm")
 
 [node name="DragComponent" parent="." instance=ExtResource("3_jy6bs")]
 MOUSE_CLOSE_DAMP = 80.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-102, 47, -88, -49, -105, -89, -114, -86, -104, -51, -128, 59, -129, 93, 122, 95, 124, 78, -106, 77)

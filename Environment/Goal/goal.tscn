@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci3153isbxxtg"]
+
+[ext_resource type="Script" path="res://Levels/GoalArea.gd" id="1_3wkxr"]
+[ext_resource type="Texture2D" uid="uid://c8s503hkgbyo4" path="res://Environment/Goal/exterminator.png" id="2_oiktw"]
+
+[node name="GoalArea" type="Area2D"]
+script = ExtResource("1_3wkxr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_oiktw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(63, -25, 53, -29, 37, 54, 62, 55)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(44, -60, 48, -49, 64, -42, 63, 63, 34, 65, 3, 60, -26, 41, -44, 20, -59, -2, -55, -7, -44, 9, -32, 26, -10, 44, 8, 52, 32, 58, 57, 58, 59, -37, 41, -47, 34, -60)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
