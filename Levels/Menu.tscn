@@ -1,4 +1,62 @@
-[gd_scene format=3 uid="uid://bdqyk7kkxg3bj"]
+[gd_scene load_steps=8 format=3 uid="uid://bdqyk7kkxg3bj"]
+
+[ext_resource type="Texture2D" uid="uid://buq2ivkmxi0k3" path="res://Environment/Menu/MENU.png" id="1_njt1m"]
+[ext_resource type="FontFile" uid="uid://cwqed0vvy07um" path="res://Environment/Menu/PaytoneOne-Regular.ttf" id="2_ivx0m"]
+[ext_resource type="Script" path="res://Levels/Button.gd" id="3_w6vgt"]
+
+[sub_resource type="Animation" id="Animation_75pre"]
+resource_name = "Fade"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ddpw2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4770e"]
+resource_name = "UnFade"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1yw3u"]
+_data = {
+"Fade": SubResource("Animation_75pre"),
+"RESET": SubResource("Animation_ddpw2"),
+"UnFade": SubResource("Animation_4770e")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,10 +73,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_njt1m")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = -80.0
-offset_top = 72.0
-offset_right = -40.0
-offset_bottom = 112.0
+offset_left = 856.0
+offset_top = 456.0
+offset_right = 1073.0
+offset_bottom = 562.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ivx0m")
+theme_override_font_sizes/font_size = 70
+action_mode = 0
+text = "PLAY"
+script = ExtResource("3_w6vgt")
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_1yw3u")
+}
+autoplay = "Fade"
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="animation_finished" from="BlackScreen/AnimationPlayer" to="Button" method="_on_animation_player_animation_finished"]
