@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://ci3153isbxxtg" path="res://Environment/Goal/goal.tscn" id="1_nuy61"]
 [ext_resource type="Texture2D" uid="uid://bgpachfe10kpg" path="res://Environment/Background/planks.png" id="1_wirce"]
-[ext_resource type="PackedScene" uid="uid://boaufbfxdejk2" path="res://Environment/Dispensers/item_dispenser.tscn" id="3_5ry4f"]
+[ext_resource type="PackedScene" path="res://Environment/Dispensers/item_dispenser.tscn" id="3_5ry4f"]
 [ext_resource type="Texture2D" uid="uid://dbese6072xpsw" path="res://Environment/Box.png" id="3_trlrp"]
 [ext_resource type="PackedScene" uid="uid://qcfhtceusiqq" path="res://Environment/Movers/Treadmill/rigid_treadmill.tscn" id="5_8728y"]
 [ext_resource type="PackedScene" uid="uid://bwu3w67ptxvt3" path="res://Environment/UI/ui.tscn" id="7_hol5f"]
-[ext_resource type="PackedScene" uid="uid://brfv1oxwe3r4f" path="res://Environment/Movers/Treadmill/converter.tscn" id="7_uohas"]
-[ext_resource type="PackedScene" uid="uid://bv5d0wbsblgpe" path="res://Environment/Dispensers/PencilDispenser.tscn" id="16_j4was"]
+[ext_resource type="PackedScene" path="res://Environment/Movers/Treadmill/converter.tscn" id="7_uohas"]
+[ext_resource type="PackedScene" path="res://Environment/Dispensers/PencilDispenser.tscn" id="16_j4was"]
 [ext_resource type="Script" path="res://Environment/Items/ItemParent.gd" id="16_xxgvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubosm"]
@@ -36,7 +36,6 @@ position = Vector2(255, 58)
 [node name="StaticBody2D" type="StaticBody2D" parent="Environment"]
 position = Vector2(-398, 1144)
 scale = Vector2(27.28, 1)
-collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D"]
@@ -49,7 +48,6 @@ texture = ExtResource("3_trlrp")
 [node name="StaticBody2D4" type="StaticBody2D" parent="Environment"]
 position = Vector2(1119, -98)
 scale = Vector2(22.32, 1)
-collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D4"]
@@ -62,7 +60,6 @@ texture = ExtResource("3_trlrp")
 [node name="StaticBody2D2" type="StaticBody2D" parent="Environment"]
 position = Vector2(1350, 338)
 scale = Vector2(0.919996, 13.96)
-collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D2"]
@@ -75,7 +72,6 @@ texture = ExtResource("3_trlrp")
 [node name="StaticBody2D3" type="StaticBody2D" parent="Environment"]
 position = Vector2(-87, 485)
 scale = Vector2(0.919996, 13.96)
-collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D3"]

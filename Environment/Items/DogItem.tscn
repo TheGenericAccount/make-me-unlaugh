@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkg286711om0k"]
+[gd_scene load_steps=6 format=3 uid="uid://jt4hulsa471q"]
 
 [ext_resource type="Script" path="res://Environment/Items/DogItem.gd" id="1_cf0bf"]
 [ext_resource type="Texture2D" path="res://Environment/Items/depressedpuppy.png" id="2_uxng3"]
