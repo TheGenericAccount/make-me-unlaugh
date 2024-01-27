@@ -2,7 +2,9 @@ class_name ScoreCounter
 extends TextureProgressBar
 
 const MULTIPLIER_BASE = 1
-static var timer:float = 0.00
+static var timer:float = 0.00:
+	set(value):
+		return clamp(value, 0 ,100)
 static var multiplier:float = MULTIPLIER_BASE
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,3 +17,4 @@ func _process(delta):
 	value=timer
 	if timer < 20:
 		multiplier *= 1.01
+
