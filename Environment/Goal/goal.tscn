@@ -11,7 +11,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("2_oiktw")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(63, -25, 53, -29, 37, 54, 62, 55)
+polygon = PackedVector2Array(63, -25, 53, -29, 2, 50, 62, 55)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

@@ -4,7 +4,7 @@ extends Node2D
 static var currently_dragged:RigidBody2D=null;
 var MOUSE_DRAG_MULTIPLIER:float=1000;
 var MOUSE_DRAG_MAX_FORCE:float=30000;
-var MOUSE_DRAG_MAX_SPEED:float=2000;
+var MOUSE_DRAG_MAX_SPEED:float=2000*10000;
 const MOUSE_DRAG_DISTANCE_ALLOWED:float=2000;
 const MOUSE_DAMP_THRESHOLD:float=200
 
@@ -29,7 +29,6 @@ func _physics_process(delta:float):
 	if currently_dragged==parent:
 		if UNFREEZE_WHILE_DRAGGING:
 			parent.freeze=false
-		parent.modulate=Color.RED;
 		parent.gravity_scale=0;
 		var force_vector:Vector2=(get_global_mouse_position()-parent.global_position)
 		var throw_multiplier=min(force_vector.length()*MOUSE_DRAG_MULTIPLIER, MOUSE_DRAG_MAX_FORCE)
@@ -48,7 +47,7 @@ func _physics_process(delta:float):
 			parent.freeze=true
 		parent.gravity_scale=1;
 		parent.linear_damp=MOUSE_DEFAULT_DAMP
-		parent.modulate=Color.WHITE;
+
 
 func _on_parent_input_event(viewport:Node, event:InputEvent, shape_idx:int)->void:
 	if event is InputEventMouseButton:

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://kerriafsmoge"]
+
+[ext_resource type="Script" path="res://Environment/Items/Pencil.gd" id="1_e6drr"]
+[ext_resource type="Texture2D" uid="uid://utxmf3fvb13d" path="res://Environment/Items/pencils.png" id="2_uvn1g"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_s7xcn"]
+[ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_mux7g"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
+bounce = 0.1
+
+[node name="Pencil" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_o58at")
+continuous_cd = 2
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_e6drr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uvn1g")
+
+[node name="DragComponent" parent="." instance=ExtResource("3_s7xcn")]
+
+[node name="RewardComponent" type="Node2D" parent="."]
+script = ExtResource("4_mux7g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-34, -8, 7, 34, 25, 28, 36, 12, -5, -29, -29, -29)

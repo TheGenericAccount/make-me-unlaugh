@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://1oimmi4j5d6n"]
+[gd_scene load_steps=7 format=3 uid="uid://1oimmi4j5d6n"]
 
+[ext_resource type="Script" path="res://Environment/Items/Item.gd" id="1_atu0b"]
 [ext_resource type="Texture2D" uid="uid://d21o4hqhdhtbd" path="res://Environment/Item.png" id="1_cg04a"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="2_34i4s"]
 [ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="3_pqqhx"]
@@ -15,6 +16,7 @@ physics_material_override = SubResource("PhysicsMaterial_o58at")
 continuous_cd = 2
 linear_damp = 1.0
 angular_damp = 1.0
+script = ExtResource("1_atu0b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cg04a")

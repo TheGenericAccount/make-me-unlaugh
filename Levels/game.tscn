@@ -1,14 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://cquahwesqdl37"]
+[gd_scene load_steps=18 format=3 uid="uid://cquahwesqdl37"]
 
-[ext_resource type="PackedScene" uid="uid://1oimmi4j5d6n" path="res://Environment/Items/test_item.tscn" id="1_g12ci"]
 [ext_resource type="PackedScene" uid="uid://ci3153isbxxtg" path="res://Environment/Goal/goal.tscn" id="1_nuy61"]
+[ext_resource type="Texture2D" uid="uid://bgpachfe10kpg" path="res://Environment/Background/planks.png" id="1_wirce"]
+[ext_resource type="PackedScene" uid="uid://bmk6xsp5q3jh7" path="res://Environment/Items/ToiletPaper.tscn" id="2_h4px5"]
 [ext_resource type="Texture2D" uid="uid://dbese6072xpsw" path="res://Environment/Box.png" id="3_trlrp"]
 [ext_resource type="Script" path="res://Levels/Spawner.gd" id="3_x0mre"]
+[ext_resource type="PackedScene" uid="uid://kerriafsmoge" path="res://Environment/Items/Pencil.tscn" id="4_dmoix"]
 [ext_resource type="PackedScene" uid="uid://qcfhtceusiqq" path="res://Environment/Movers/Treadmill/rigid_treadmill.tscn" id="5_8728y"]
 [ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="6_h1bgd"]
 [ext_resource type="Texture2D" uid="uid://brhbmfx2aamlq" path="res://Environment/Converters/puppycage.png" id="6_v7fpj"]
 [ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="7_o25q6"]
+[ext_resource type="Script" path="res://Environment/Items/ToiletPaper.gd" id="7_wed0a"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="8_l3cdi"]
+[ext_resource type="Script" path="res://Environment/Items/Pencil.gd" id="10_3qa5l"]
+[ext_resource type="Script" path="res://Levels/ConverterSpawn.gd" id="10_kb8un"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubosm"]
 size = Vector2(127, 127)
@@ -23,15 +28,30 @@ size = Vector2(123, 127)
 layout_mode = 3
 anchors_preset = 0
 
+[node name="Planks" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_wirce")
+
 [node name="ItemSpawner" type="Node2D" parent="."]
 position = Vector2(401, 96)
 script = ExtResource("3_x0mre")
-RESOURCE_TO_SPAWN = ExtResource("1_g12ci")
+RESOURCE_TO_SPAWN = ExtResource("2_h4px5")
 SPAWN_INSTANTLY = true
 SPAWN_INTERVAL = 2.0
 MAX_TO_SPAWN = 10
 
 [node name="Timer" type="Timer" parent="ItemSpawner"]
+autostart = true
+
+[node name="ItemSpawner2" type="Node2D" parent="."]
+position = Vector2(758, 102)
+script = ExtResource("3_x0mre")
+RESOURCE_TO_SPAWN = ExtResource("4_dmoix")
+SPAWN_INSTANTLY = true
+SPAWN_INTERVAL = 2.0
+MAX_TO_SPAWN = 10
+
+[node name="Timer" type="Timer" parent="ItemSpawner2"]
 autostart = true
 
 [node name="Environment" type="Node2D" parent="."]
@@ -108,19 +128,25 @@ lock_rotation = true
 freeze = true
 script = ExtResource("6_h1bgd")
 
-[node name="AreaLeft" type="Area2D" parent="Converter"]
+[node name="PickupLeft" type="Area2D" parent="Converter"]
 script = ExtResource("7_o25q6")
-needs_to_fulfill = null
+accepted_items = Array[Script]([ExtResource("7_wed0a")])
+metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Converter/AreaLeft"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Converter/PickupLeft"]
 polygon = PackedVector2Array(-70, -59, -46, -2, -71, 60)
 
-[node name="AreaTop" type="Area2D" parent="Converter"]
+[node name="PickupRight" type="Area2D" parent="Converter"]
 script = ExtResource("7_o25q6")
-needs_to_fulfill = null
+accepted_items = Array[Script]([ExtResource("10_3qa5l")])
+metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Converter/AreaTop"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Converter/PickupRight"]
 polygon = PackedVector2Array(-54, -73, -3, -42, 59, -71)
+
+[node name="Spawner" type="Node2D" parent="Converter"]
+position = Vector2(-680, -572)
+script = ExtResource("10_kb8un")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Converter"]
 position = Vector2(-3.5, -3.5)
@@ -135,3 +161,4 @@ texture = ExtResource("6_v7fpj")
 position = Vector2(1238, 987)
 
 [connection signal="timeout" from="ItemSpawner/Timer" to="ItemSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="ItemSpawner2/Timer" to="ItemSpawner2" method="_on_timer_timeout"]
