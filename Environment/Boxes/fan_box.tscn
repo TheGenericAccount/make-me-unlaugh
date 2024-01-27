@@ -32,4 +32,4 @@ shape = SubResource("RectangleShape2D_kfem1")
 [node name="ConveyorComponent" type="Node2D" parent="."]
 script = ExtResource("4_qqunb")
 item_to_spawn = ExtResource("5_kpwfb")
-angle_randomness = 180.0
+angle_randomness = 90.0

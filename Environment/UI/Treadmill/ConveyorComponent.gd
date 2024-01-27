@@ -15,7 +15,7 @@ func _process(delta):
 		var instance=item_to_spawn.instantiate()
 		instance.global_position=get_global_mouse_position()
 		ItemParent.instance.add_child(instance)
-		instance.rotation=randf_range(0, angle_randomness)
+		instance.rotation=randf_range(-angle_randomness, angle_randomness)
 		instance.get_node("DragComponent").pick_up()
 		get_parent().queue_free()
 	if get_parent().global_position.y>1500:

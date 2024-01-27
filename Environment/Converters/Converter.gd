@@ -3,6 +3,7 @@ class_name Converter
 
 var pickup_points:Array[ConverterPickup]
 var spawn_points:Array[ConverterSpawn]
+const CONVERTION_DELAY=0.1
 
 func _ready():
 	for child in get_children():
@@ -19,6 +20,11 @@ func process_fulfill():
 		pickup_point.fulfilled=false
 	
 	reward()
+	
+	await get_tree().create_timer(CONVERTION_DELAY).timeout 
+	for pickup_point in pickup_points:
+		for body in pickup_point.get_overlapping_bodies():
+			pickup_point._body_entered(body)
 
 
 func reward():
