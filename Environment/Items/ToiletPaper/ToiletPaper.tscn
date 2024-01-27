@@ -1,27 +1,28 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmk6xsp5q3jh7"]
 
-[ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="1_of0xe"]
-[ext_resource type="Texture2D" uid="uid://b4gy7duygyi62" path="res://Environment/Items/ToiletPaper/bogroll1.png" id="2_2dkq4"]
-[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_p1tky"]
-[ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_wmo5r"]
+[ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="1_f62pu"]
+[ext_resource type="Texture2D" uid="uid://b4gy7duygyi62" path="res://Environment/Items/ToiletPaper/bogroll1.png" id="2_sglak"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_w2o4k"]
+[ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_6jg26"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
 bounce = 0.1
 
 [node name="ToiletPaper" type="RigidBody2D"]
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_o58at")
 continuous_cd = 2
 linear_damp = 1.0
 angular_damp = 1.0
-script = ExtResource("1_of0xe")
+script = ExtResource("1_f62pu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_2dkq4")
+texture = ExtResource("2_sglak")
 
-[node name="DragComponent" parent="." instance=ExtResource("3_p1tky")]
+[node name="DragComponent" parent="." instance=ExtResource("3_w2o4k")]
 
 [node name="RewardComponent" type="Node2D" parent="."]
-script = ExtResource("4_wmo5r")
+script = ExtResource("4_6jg26")
 reward = 10.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

@@ -13,6 +13,7 @@ const MOUSE_DAMP_THRESHOLD:float=200
 @onready var parent:RigidBody2D=get_parent();
 @onready var MOUSE_DEFAULT_DAMP:float=parent.linear_damp
 @onready var UNFREEZE_WHILE_DRAGGING:bool=parent.freeze
+var initial_gravity_scale
 
 func _ready():
 	parent.input_event.connect(_on_parent_input_event);
@@ -29,6 +30,7 @@ func _physics_process(delta:float):
 	if currently_dragged==parent:
 		if UNFREEZE_WHILE_DRAGGING:
 			parent.freeze=false
+		initial_gravity_scale=parent.gravity_scale
 		parent.gravity_scale=0;
 		var force_vector:Vector2=(get_global_mouse_position()-parent.global_position)
 		var throw_multiplier=min(force_vector.length()*MOUSE_DRAG_MULTIPLIER, MOUSE_DRAG_MAX_FORCE)
