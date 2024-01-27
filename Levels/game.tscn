@@ -34,7 +34,7 @@ position = Vector2(255, 58)
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Environment"]
-position = Vector2(-408, 1157)
+position = Vector2(-398, 1144)
 scale = Vector2(27.28, 1)
 metadata/_edit_group_ = true
 
@@ -58,7 +58,7 @@ shape = SubResource("RectangleShape2D_ubosm")
 texture = ExtResource("3_trlrp")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Environment"]
-position = Vector2(1358, 330)
+position = Vector2(1350, 338)
 scale = Vector2(0.919996, 13.96)
 metadata/_edit_group_ = true
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://kerriafsmoge"]
 
-[ext_resource type="Script" path="res://Environment/Items/Pencil.gd" id="1_e6drr"]
-[ext_resource type="Texture2D" uid="uid://utxmf3fvb13d" path="res://Environment/Items/pencils.png" id="2_uvn1g"]
+[ext_resource type="Script" path="res://Environment/Items/Pencil/Pencil.gd" id="1_e6drr"]
+[ext_resource type="Texture2D" uid="uid://utxmf3fvb13d" path="res://Environment/Items/Pencil/pencils.png" id="2_uvn1g"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_s7xcn"]
 [ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_mux7g"]
 

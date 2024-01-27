@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djub0wxlybshx"
-path="res://.godot/imported/bogroll2.png-0584fa73cafaa23f9145e56e1e7efe5a.ctex"
+path="res://.godot/imported/bogroll2.png-9ba8ce44cffc7b2a9289e9aa0be2ccbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/Items/bogroll2.png"
-dest_files=["res://.godot/imported/bogroll2.png-0584fa73cafaa23f9145e56e1e7efe5a.ctex"]
+source_file="res://Environment/Items/ToiletPaper/bogroll2.png"
+dest_files=["res://.godot/imported/bogroll2.png-9ba8ce44cffc7b2a9289e9aa0be2ccbb.ctex"]
 
 [params]
 

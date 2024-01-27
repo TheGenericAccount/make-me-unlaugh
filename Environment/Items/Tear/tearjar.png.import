@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://utxmf3fvb13d"
-path="res://.godot/imported/pencils.png-5f280bc36178659169b9f21b9ec12297.ctex"
+uid="uid://ddq5jy57t1al2"
+path="res://.godot/imported/tearjar.png-a9b33c583b50c223e95beaf86b9ecfe3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/Items/pencils.png"
-dest_files=["res://.godot/imported/pencils.png-5f280bc36178659169b9f21b9ec12297.ctex"]
+source_file="res://Environment/Items/Tear/tearjar.png"
+dest_files=["res://.godot/imported/tearjar.png-a9b33c583b50c223e95beaf86b9ecfe3.ctex"]
 
 [params]
 

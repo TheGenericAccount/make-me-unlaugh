@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4gy7duygyi62"
-path="res://.godot/imported/bogroll1.png-cd76905f3fc72e689e09fd21ec4302df.ctex"
+uid="uid://boeu12t6p3pw3"
+path="res://.godot/imported/bogroll3.png-76a1f7c822b8902baefd25ee9abc8824.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/Items/bogroll1.png"
-dest_files=["res://.godot/imported/bogroll1.png-cd76905f3fc72e689e09fd21ec4302df.ctex"]
+source_file="res://Environment/Items/ToiletPaper/bogroll3.png"
+dest_files=["res://.godot/imported/bogroll3.png-76a1f7c822b8902baefd25ee9abc8824.ctex"]
 
 [params]
 
