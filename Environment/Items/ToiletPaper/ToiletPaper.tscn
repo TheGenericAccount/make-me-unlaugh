@@ -23,7 +23,7 @@ texture = ExtResource("2_sglak")
 
 [node name="RewardComponent" type="Node2D" parent="."]
 script = ExtResource("4_6jg26")
-type = "toilet-paper"
+reward = 10.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-32, -20, -30, 24, -14, 32, 11, 32, 30, 21, 29, -24, 15, -32, -17, -32)

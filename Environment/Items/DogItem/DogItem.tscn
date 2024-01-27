@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2ho4p0do2awd"]
+[gd_scene load_steps=6 format=3 uid="uid://bmvi18i5nm2k2"]
 
 [ext_resource type="Script" path="res://Environment/Items/DogItem/DogItem.gd" id="1_vif8t"]
 [ext_resource type="Texture2D" uid="uid://d0mvamqpn3f76" path="res://Environment/Items/DogItem/depressedpuppy.png" id="2_3vae8"]
@@ -23,7 +23,7 @@ texture = ExtResource("2_3vae8")
 
 [node name="RewardComponent" type="Node2D" parent="."]
 script = ExtResource("4_n1a7u")
-type = "dog-item"
+reward = 50.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-32, -18, -32, -7, -11, 31, -3, 31, 32, 11, 33, 5, 3, -34)

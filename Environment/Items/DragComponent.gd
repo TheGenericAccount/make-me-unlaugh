@@ -13,7 +13,7 @@ const MOUSE_DAMP_THRESHOLD:float=200
 @onready var parent:RigidBody2D=get_parent();
 @onready var MOUSE_DEFAULT_DAMP:float=parent.linear_damp
 @onready var UNFREEZE_WHILE_DRAGGING:bool=parent.freeze
-var initial_gravity_scale
+var initial_gravity_scale=1
 
 func _ready():
 	parent.input_event.connect(_on_parent_input_event);
@@ -32,7 +32,9 @@ func _process(delta):
 			parent.linear_damp=MOUSE_DEFAULT_DAMP
 
 func _physics_process(delta:float):
+	print(currently_dragged)
 	if currently_dragged==parent:
+		print(parent.freeze)
 		var force_vector:Vector2=(get_global_mouse_position()-parent.global_position)
 		var throw_multiplier=min(force_vector.length()*MOUSE_DRAG_MULTIPLIER, MOUSE_DRAG_MAX_FORCE)
 		var estimated_velocity:Vector2=(parent.linear_velocity.normalized()+force_vector.normalized()).normalized()*parent.linear_velocity.length()
@@ -44,18 +46,23 @@ func _physics_process(delta:float):
 			parent.linear_damp=MOUSE_DEFAULT_DAMP
 		
 		force_vector=force_vector.normalized()*throw_multiplier
+		print(force_vector)
 		parent.apply_central_force(force_vector)
 
+func pick_up():
+	print("pick up")
+	currently_dragged=parent
+	if UNFREEZE_WHILE_DRAGGING:
+		parent.freeze=false
+	initial_gravity_scale=parent.gravity_scale
+	parent.gravity_scale=0;
 
 func _on_parent_input_event(viewport:Node, event:InputEvent, shape_idx:int)->void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if(currently_dragged!=null):
 				return;
-			currently_dragged=parent;
-			if UNFREEZE_WHILE_DRAGGING:
-				parent.freeze=false
-			initial_gravity_scale=parent.gravity_scale
-			parent.gravity_scale=0;
+			pick_up()
+			
 
 

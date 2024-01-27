@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://brfv1oxwe3r4f"]
+
+[ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="1_7hfnc"]
+[ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="2_tmb1q"]
+[ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="3_4imnr"]
+[ext_resource type="Script" path="res://Environment/Items/Pencil/Pencil.gd" id="4_0akiy"]
+[ext_resource type="Script" path="res://Levels/ConverterSpawn.gd" id="5_2i2nv"]
+[ext_resource type="PackedScene" uid="uid://bmvi18i5nm2k2" path="res://Environment/Items/DogItem/DogItem.tscn" id="6_6eys6"]
+[ext_resource type="Texture2D" uid="uid://brhbmfx2aamlq" path="res://Environment/Converters/puppycage.png" id="7_q28ct"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="8_oew4w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt0jo"]
+size = Vector2(123, 127)
+
+[node name="Converter" type="RigidBody2D"]
+collision_mask = 3
+lock_rotation = true
+freeze = true
+continuous_cd = 2
+script = ExtResource("1_7hfnc")
+
+[node name="PickupLeft" type="Area2D" parent="."]
+script = ExtResource("2_tmb1q")
+accepted_items = Array[Script]([ExtResource("3_4imnr")])
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupLeft"]
+polygon = PackedVector2Array(-70, -59, -46, -2, -71, 60)
+
+[node name="PickupRight" type="Area2D" parent="."]
+script = ExtResource("2_tmb1q")
+accepted_items = Array[Script]([ExtResource("4_0akiy")])
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupRight"]
+polygon = PackedVector2Array(-54, -73, -3, -42, 59, -71)
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(87, -11)
+script = ExtResource("5_2i2nv")
+resource_to_spawn = ExtResource("6_6eys6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -3.5)
+shape = SubResource("RectangleShape2D_rt0jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("7_q28ct")
+
+[node name="DragComponent" parent="." instance=ExtResource("8_oew4w")]
