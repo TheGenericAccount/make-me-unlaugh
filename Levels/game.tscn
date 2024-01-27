@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cquahwesqdl37"]
+[gd_scene load_steps=14 format=3 uid="uid://cquahwesqdl37"]
 
 [ext_resource type="PackedScene" uid="uid://1oimmi4j5d6n" path="res://Environment/Items/test_item.tscn" id="1_g12ci"]
 [ext_resource type="Texture2D" uid="uid://dbese6072xpsw" path="res://Environment/Box.png" id="3_trlrp"]
 [ext_resource type="Script" path="res://Levels/Spawner.gd" id="3_x0mre"]
 [ext_resource type="Script" path="res://Levels/GoalArea.gd" id="4_t85w3"]
-[ext_resource type="PackedScene" uid="uid://qcfhtceusiqq" path="res://Environment/Machines/Treadmill/rigid_treadmill.tscn" id="5_8728y"]
+[ext_resource type="PackedScene" uid="uid://qcfhtceusiqq" path="res://Environment/Movers/Treadmill/rigid_treadmill.tscn" id="5_8728y"]
+[ext_resource type="Texture2D" uid="uid://brhbmfx2aamlq" path="res://Environment/Converters/puppycage.png" id="6_v7fpj"]
+[ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="7_o25q6"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="8_l3cdi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubosm"]
 size = Vector2(127, 127)
@@ -17,6 +20,9 @@ size = Vector2(127, 126)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pymlq"]
 size = Vector2(127, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt0jo"]
+size = Vector2(123, 127)
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -127,6 +133,32 @@ offset_top = -227.0
 offset_right = 2192.0
 offset_bottom = 1207.0
 color = Color(0, 0.541176, 0.352941, 1)
+
+[node name="Converter" type="RigidBody2D" parent="."]
+position = Vector2(680, 572)
+lock_rotation = true
+freeze = true
+
+[node name="AreaLeft" type="Area2D" parent="Converter"]
+script = ExtResource("7_o25q6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Converter/AreaLeft"]
+polygon = PackedVector2Array(-70, -59, -46, -2, -71, 60)
+
+[node name="AreaTop" type="Area2D" parent="Converter"]
+script = ExtResource("7_o25q6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Converter/AreaTop"]
+polygon = PackedVector2Array(-54, -73, -3, -42, 59, -71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Converter"]
+position = Vector2(-3.5, -3.5)
+shape = SubResource("RectangleShape2D_rt0jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Converter"]
+texture = ExtResource("6_v7fpj")
+
+[node name="DragComponent" parent="Converter" instance=ExtResource("8_l3cdi")]
 
 [connection signal="timeout" from="ItemSpawner/Timer" to="ItemSpawner" method="_on_timer_timeout"]
 [connection signal="body_entered" from="GoalArea" to="GoalArea" method="_on_body_entered"]

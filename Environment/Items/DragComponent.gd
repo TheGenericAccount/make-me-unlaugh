@@ -8,7 +8,7 @@ var MOUSE_DRAG_MAX_SPEED:float=2000;
 const MOUSE_DRAG_DISTANCE_ALLOWED:float=2000;
 const MOUSE_DAMP_THRESHOLD:float=200
 
-const MOUSE_CLOSE_DAMP:float=30
+@export var MOUSE_CLOSE_DAMP:float=30
 @export var CONSTANTS_MULTIPLIER:float=1
 @onready var parent:RigidBody2D=get_parent();
 @onready var MOUSE_DEFAULT_DAMP:float=parent.linear_damp
