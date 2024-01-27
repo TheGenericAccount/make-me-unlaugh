@@ -10,8 +10,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if ScoreCounter.timer < NEUTRAL_START:
+	if ScoreCounter.laugh < NEUTRAL_START:
 		$AnimationPlayer.play("Sad")
-	elif ScoreCounter.timer > NEUTRAL_END:
+	elif ScoreCounter.laugh > NEUTRAL_END:
 		$AnimationPlayer.play("Happy")
 	else: $AnimationPlayer.play("Neutral")
