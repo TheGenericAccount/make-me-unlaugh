@@ -21,7 +21,7 @@
 [ext_resource type="Script" path="res://Environment/UI/CityMood.gd" id="18_j4a5j"]
 [ext_resource type="Texture2D" uid="uid://boc4in6s7d1ne" path="res://Environment/UI/UI/CityState/City_State_Happy1.png" id="18_jjrbc"]
 [ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="18_rbxbc"]
-[ext_resource type="Texture2D" uid="uid://cw50jjd2ri0yk" path="res://Environment/Boxes/cagebox.png" id="19_80vc1"]
+[ext_resource type="Texture2D" uid="uid://bst0cfjyx2p5d" path="res://Environment/Boxes/cagebox.png" id="19_80vc1"]
 [ext_resource type="Texture2D" uid="uid://l5jxthkbm36m" path="res://Environment/UI/UI/CityState/City_State_Happy2.png" id="19_ed4sa"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="20_lndbu"]
 [ext_resource type="Texture2D" uid="uid://cjm644i1b1a3r" path="res://Environment/UI/UI/CityState/City_State_Sad1.png" id="21_1pcbc"]
@@ -207,7 +207,7 @@ libraries = {
 autoplay = "run"
 
 [node name="ToiletPaper" type="RigidBody2D" parent="Treadmil"]
-position = Vector2(1389, 211)
+position = Vector2(1386, 98)
 physics_material_override = SubResource("PhysicsMaterial_o58at")
 continuous_cd = 2
 linear_damp = 1.0
