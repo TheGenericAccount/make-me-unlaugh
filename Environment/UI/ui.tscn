@@ -15,24 +15,32 @@ offset_bottom = 1207.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -1300.0
+offset_top = 227.0
+offset_right = 620.0
+offset_bottom = 1307.0
 texture = ExtResource("1_o6sfb")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -1300.0
+offset_top = 227.0
+offset_right = 620.0
+offset_bottom = 1307.0
 texture = ExtResource("2_vy5l1")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -1300.0
+offset_top = 227.0
+offset_right = 620.0
+offset_bottom = 1307.0
 texture = ExtResource("3_40sev")
 
 [node name="TextureRectMain" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -1300.0
+offset_top = 227.0
+offset_right = 620.0
+offset_bottom = 1307.0
 texture = ExtResource("4_wchga")
