@@ -28,7 +28,7 @@ func _process(delta):
 			currently_dragged=null;
 			if UNFREEZE_WHILE_DRAGGING:
 				parent.freeze=true
-			parent.gravity_scale=1;
+			parent.gravity_scale=initial_gravity_scale;
 			parent.linear_damp=MOUSE_DEFAULT_DAMP
 
 func _physics_process(delta:float):
