@@ -107,3 +107,4 @@ texture = ExtResource("5_ppba2")
 libraries = {
 "": SubResource("AnimationLibrary_n05oj")
 }
+autoplay = "run"
