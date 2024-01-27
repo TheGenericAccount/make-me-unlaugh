@@ -9,7 +9,7 @@ script = ExtResource("1_3y3go")
 RESOURCE_TO_SPAWN = ExtResource("2_k234m")
 SPAWN_INSTANTLY = true
 SPAWN_INTERVAL = 2.0
-MAX_TO_SPAWN = 10
+MAX_TO_SPAWN = 100
 X_SPREAD = 20.0
 
 [node name="Timer" type="Timer" parent="."]

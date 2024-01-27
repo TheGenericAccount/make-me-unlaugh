@@ -8,10 +8,16 @@
 size = Vector2(228, 28)
 
 [node name="RigidTreadmill" type="RigidBody2D"]
+disable_mode = 1
+collision_mask = 3
 mass = 10.0
+can_sleep = false
 lock_rotation = true
 freeze = true
+freeze_mode = 1
 continuous_cd = 2
+max_contacts_reported = 20
+contact_monitor = true
 linear_damp = 1.0
 angular_damp = 80.0
 script = ExtResource("1_phkl5")

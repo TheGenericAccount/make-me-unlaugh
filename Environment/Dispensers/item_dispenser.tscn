@@ -10,7 +10,7 @@ script = ExtResource("1_a7b5p")
 RESOURCE_TO_SPAWN = ExtResource("2_xab5c")
 SPAWN_INSTANTLY = true
 SPAWN_INTERVAL = 2.0
-MAX_TO_SPAWN = 10
+MAX_TO_SPAWN = 100
 X_SPREAD = 20.0
 
 [node name="Timer" type="Timer" parent="."]

@@ -3,8 +3,9 @@ extends Node2D
 @export var RESOURCE_TO_SPAWN:PackedScene
 @export var SPAWN_INSTANTLY:bool=false
 @export var SPAWN_INTERVAL:float=5
-@export var MAX_TO_SPAWN:int=5
+@export var MAX_TO_SPAWN:int=999
 @export var X_SPREAD:float=100
+const SPAWN_THROTTLE_BASE=1.2
 var items_spawned=0
 
 func _ready():
@@ -16,6 +17,8 @@ func _ready():
 
 func _on_timer_timeout():
 	spawn()
+	var items_spawned=ItemParent.instance.get_child_count()
+	$Timer.wait_time=SPAWN_INTERVAL*pow(SPAWN_THROTTLE_BASE, items_spawned)
 
 func spawn()->void:
 	if(items_spawned>MAX_TO_SPAWN):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bwu3w67ptxvt3"]
+[gd_scene load_steps=33 format=3 uid="uid://bwu3w67ptxvt3"]
 
 [ext_resource type="Texture2D" uid="uid://r0tbkp3upl8r" path="res://Environment/UI/UI/Happy_meter1_NEWNEW.png" id="2_3jva2"]
 [ext_resource type="Texture2D" uid="uid://xre0cct46j7c" path="res://Environment/UI/UI/Happy_meter2.png" id="2_vy5l1"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Environment/UI/ProgressTexture.gd" id="3_gv3ll"]
 [ext_resource type="Texture2D" uid="uid://b1i41o52ke0m7" path="res://Environment/UI/UI/UI_Main.png" id="4_wchga"]
 [ext_resource type="Texture2D" uid="uid://ca8n888krgsu3" path="res://Environment/UI/Treadmill/UI_Treadmill1.png" id="5_ppba2"]
-[ext_resource type="Script" path="res://Environment/UI/Treadmill/UITreadmil.gd" id="6_bsgdl"]
 [ext_resource type="Texture2D" uid="uid://bfuktfqwecmgp" path="res://Environment/UI/Treadmill/UI_Treadmill2.png" id="6_nl5nx"]
 [ext_resource type="Texture2D" uid="uid://cf3vonjwams0" path="res://Environment/UI/Treadmill/UI_Treadmill3.png" id="7_eyxyy"]
 [ext_resource type="Texture2D" uid="uid://c8ob6xthidhe3" path="res://Environment/UI/Treadmill/UI_Treadmill4.png" id="8_gs24u"]
@@ -25,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://cq3e3hv8eos2e" path="res://Environment/UI/UI/CityState/City_State_Sad2.png" id="22_ex27g"]
 [ext_resource type="Texture2D" uid="uid://ckw55ws7m5fps" path="res://Environment/UI/UI/CityState/City_State_Neutral.png" id="23_vhwlf"]
 [ext_resource type="Texture2D" uid="uid://caov8chodcfmk" path="res://Environment/UI/UI/UI_Main_background.png" id="24_q1wpk"]
-[ext_resource type="PackedScene" uid="uid://cjy4uvx6ljspd" path="res://Environment/UI/Treadmill/Boxes/conveyor_box.tscn" id="26_u8o32"]
 
 [sub_resource type="Animation" id="Animation_x8p0x"]
 length = 0.001
@@ -188,7 +186,6 @@ offset_top = 227.0
 offset_right = 620.0
 offset_bottom = 1307.0
 texture = ExtResource("5_ppba2")
-script = ExtResource("6_bsgdl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Treadmil"]
 libraries = {
@@ -224,8 +221,5 @@ offset_top = 227.0
 offset_right = 620.0
 offset_bottom = 1307.0
 texture = ExtResource("4_wchga")
-
-[node name="ConveyorBox" parent="." instance=ExtResource("26_u8o32")]
-position = Vector2(93, 334)
 
 [connection signal="timeout" from="ProgressTexture/Timer" to="ProgressTexture" method="_on_timer_timeout"]
