@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://darqdujxwewcg"
-path="res://.godot/imported/pencilbox.png-718d45bdcafd6db92a20f826f1cfbff0.ctex"
+uid="uid://d0pknmqcgj27y"
+path="res://.godot/imported/tearjar.png-58ff66105cb56e8a7f4ae296a526e2ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/Boxes/pencilbox.png"
-dest_files=["res://.godot/imported/pencilbox.png-718d45bdcafd6db92a20f826f1cfbff0.ctex"]
+source_file="res://Environment/Items/tearjar.png"
+dest_files=["res://.godot/imported/tearjar.png-58ff66105cb56e8a7f4ae296a526e2ab.ctex"]
 
 [params]
 

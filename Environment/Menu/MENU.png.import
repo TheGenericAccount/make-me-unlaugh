@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw50jjd2ri0yk"
-path="res://.godot/imported/cagebox.png-d3467b47f3b817b09f4d227a69f32b04.ctex"
+uid="uid://buq2ivkmxi0k3"
+path="res://.godot/imported/MENU.png-d55222af38d81ad0ba667566f22251de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/Boxes/cagebox.png"
-dest_files=["res://.godot/imported/cagebox.png-d3467b47f3b817b09f4d227a69f32b04.ctex"]
+source_file="res://Environment/Menu/MENU.png"
+dest_files=["res://.godot/imported/MENU.png-d55222af38d81ad0ba667566f22251de.ctex"]
 
 [params]
 
