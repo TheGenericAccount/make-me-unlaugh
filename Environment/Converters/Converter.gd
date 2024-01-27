@@ -23,7 +23,7 @@ func process_fulfill():
 
 func reward():
 	for spawn_point in spawn_points:
-		spawn_point.spawn()
+		spawn_point.call_deferred("spawn")
 	#for spawn_point in spawn_points
 
 func is_fulfilled()->bool:

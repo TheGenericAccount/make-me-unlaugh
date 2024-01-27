@@ -9,6 +9,7 @@ extends Node2D
 func _ready():
 	$Timer.wait_time=SPAWN_INTERVAL
 	$Timer.start()
+	return
 	if(SPAWN_INSTANTLY):
 		spawn()
 
@@ -18,8 +19,9 @@ func _on_timer_timeout():
 func spawn()->void:
 	if(get_child_count()>MAX_TO_SPAWN):
 		return
+	var item_parent=ItemParent.instance
 	var instance:Node2D=RESOURCE_TO_SPAWN.instantiate()
-	add_child(instance)
+	instance.global_position=global_position
 	instance.global_position.x+=randf_range(-X_SPREAD, X_SPREAD)
 	instance.global_rotation+=randf_range(0, 360)
-	
+	item_parent.add_child(instance)

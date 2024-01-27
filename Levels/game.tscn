@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://cquahwesqdl37"]
+[gd_scene load_steps=20 format=3 uid="uid://cquahwesqdl37"]
 
 [ext_resource type="PackedScene" uid="uid://ci3153isbxxtg" path="res://Environment/Goal/goal.tscn" id="1_nuy61"]
 [ext_resource type="Texture2D" uid="uid://bgpachfe10kpg" path="res://Environment/Background/planks.png" id="1_wirce"]
 [ext_resource type="PackedScene" uid="uid://bmk6xsp5q3jh7" path="res://Environment/Items/ToiletPaper.tscn" id="2_h4px5"]
+[ext_resource type="PackedScene" uid="uid://boaufbfxdejk2" path="res://Environment/Dispensers/item_dispenser.tscn" id="3_5ry4f"]
 [ext_resource type="Texture2D" uid="uid://dbese6072xpsw" path="res://Environment/Box.png" id="3_trlrp"]
-[ext_resource type="Script" path="res://Levels/Spawner.gd" id="3_x0mre"]
-[ext_resource type="PackedScene" uid="uid://kerriafsmoge" path="res://Environment/Items/Pencil.tscn" id="4_dmoix"]
 [ext_resource type="PackedScene" uid="uid://qcfhtceusiqq" path="res://Environment/Movers/Treadmill/rigid_treadmill.tscn" id="5_8728y"]
 [ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="6_h1bgd"]
 [ext_resource type="Texture2D" uid="uid://brhbmfx2aamlq" path="res://Environment/Converters/puppycage.png" id="6_v7fpj"]
@@ -15,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="8_l3cdi"]
 [ext_resource type="Script" path="res://Environment/Items/Pencil.gd" id="10_3qa5l"]
 [ext_resource type="Script" path="res://Levels/ConverterSpawn.gd" id="10_kb8un"]
+[ext_resource type="PackedScene" uid="uid://bv5d0wbsblgpe" path="res://Environment/Dispensers/PencilDispenser.tscn" id="16_j4was"]
+[ext_resource type="Script" path="res://Environment/Items/ItemParent.gd" id="16_xxgvq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubosm"]
 size = Vector2(127, 127)
@@ -30,31 +31,14 @@ layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
 
-[node name="Planks" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("1_wirce")
 
-[node name="ItemSpawner" type="Node2D" parent="."]
-position = Vector2(401, 96)
-script = ExtResource("3_x0mre")
-RESOURCE_TO_SPAWN = ExtResource("2_h4px5")
-SPAWN_INSTANTLY = true
-SPAWN_INTERVAL = 2.0
-MAX_TO_SPAWN = 10
+[node name="ItemParent" type="Node2D" parent="."]
+script = ExtResource("16_xxgvq")
 
-[node name="Timer" type="Timer" parent="ItemSpawner"]
-autostart = true
-
-[node name="ItemSpawner2" type="Node2D" parent="."]
-position = Vector2(758, 102)
-script = ExtResource("3_x0mre")
-RESOURCE_TO_SPAWN = ExtResource("4_dmoix")
-SPAWN_INSTANTLY = true
-SPAWN_INTERVAL = 2.0
-MAX_TO_SPAWN = 10
-
-[node name="Timer" type="Timer" parent="ItemSpawner2"]
-autostart = true
+[node name="ItemSpawner" parent="." instance=ExtResource("3_5ry4f")]
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -158,5 +142,5 @@ texture = ExtResource("6_v7fpj")
 [node name="GoalArea" parent="." instance=ExtResource("1_nuy61")]
 position = Vector2(1238, 987)
 
-[connection signal="timeout" from="ItemSpawner/Timer" to="ItemSpawner" method="_on_timer_timeout"]
-[connection signal="timeout" from="ItemSpawner2/Timer" to="ItemSpawner2" method="_on_timer_timeout"]
+[node name="PencilDispenser" parent="." instance=ExtResource("16_j4was")]
+position = Vector2(713, 97)
