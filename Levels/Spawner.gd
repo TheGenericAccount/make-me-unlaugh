@@ -9,7 +9,7 @@ const SPAWN_THROTTLE_BASE=1.2
 var items_spawned=0
 
 func _ready():
-	$Timer.wait_time=SPAWN_INTERVAL
+	$Timer.wait_time=max(1, SPAWN_INTERVAL+randf_range(-1, 1))
 	$Timer.start()
 	return
 	if(SPAWN_INSTANTLY):
@@ -17,8 +17,8 @@ func _ready():
 
 func _on_timer_timeout():
 	spawn()
-	var items_spawned=ItemParent.instance.get_child_count()
-	$Timer.wait_time=SPAWN_INTERVAL*pow(SPAWN_THROTTLE_BASE, items_spawned)
+	var total_items=ItemParent.number_of_items
+	$Timer.wait_time=SPAWN_INTERVAL*pow(SPAWN_THROTTLE_BASE, total_items)
 
 func spawn()->void:
 	if(items_spawned>MAX_TO_SPAWN):
@@ -29,5 +29,10 @@ func spawn()->void:
 	instance.global_position.x+=randf_range(-X_SPREAD, X_SPREAD)
 	instance.global_rotation+=randf_range(0, 360)
 	item_parent.add_child(instance)
-	instance.tree_exiting.connect(func():items_spawned-=1)
+	instance.tree_exiting.connect(on_offsprint_destroyed)
 	items_spawned+=1;
+	ItemParent.number_of_items+=1
+
+func on_offsprint_destroyed():
+	items_spawned-=1
+	ItemParent.number_of_items-=1

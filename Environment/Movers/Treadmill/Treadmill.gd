@@ -7,7 +7,6 @@ func _ready():
 	body_exited.connect(_body_exited)
 
 func _body_entered(body:Node):
-	print("body entered")
 	if(!body is RigidBody2D):
 		return
 	body.add_constant_central_force(STATIC_FORCE)

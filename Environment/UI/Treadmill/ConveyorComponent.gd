@@ -16,3 +16,5 @@ func _process(delta):
 		ItemParent.instance.add_child(instance)
 		instance.get_node("DragComponent").pick_up()
 		get_parent().queue_free()
+	if get_parent().global_position.y>1500:
+		get_parent().queue_free()
