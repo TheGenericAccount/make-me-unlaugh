@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://dyob0bxyyfkum"]
+[gd_scene load_steps=5 format=3 uid="uid://bwu3w67ptxvt3"]
+
+[ext_resource type="Texture2D" uid="uid://ciaegy6j66ud4" path="res://Environment/UI/UI/Happy_meter1.png" id="1_o6sfb"]
+[ext_resource type="Texture2D" uid="uid://b0kn11y14berf" path="res://Environment/UI/UI/Happy_meter2.png" id="2_vy5l1"]
+[ext_resource type="Texture2D" uid="uid://be382ou8ler40" path="res://Environment/UI/UI/Happy_meter3.png" id="3_40sev"]
+[ext_resource type="Texture2D" uid="uid://ccw4q6vlinkqs" path="res://Environment/UI/UI/UI_Main.png" id="4_wchga"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -7,3 +12,27 @@ offset_left = 1300.0
 offset_top = -227.0
 offset_right = 2192.0
 offset_bottom = 1207.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_o6sfb")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_vy5l1")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_40sev")
+
+[node name="TextureRectMain" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_wchga")
