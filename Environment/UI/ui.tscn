@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bwu3w67ptxvt3"]
+[gd_scene load_steps=33 format=3 uid="uid://bwu3w67ptxvt3"]
 
 [ext_resource type="Texture2D" uid="uid://r0tbkp3upl8r" path="res://Environment/UI/UI/Happy_meter1_NEWNEW.png" id="2_3jva2"]
 [ext_resource type="Texture2D" uid="uid://b0kn11y14berf" path="res://Environment/UI/UI/Happy_meter2.png" id="2_vy5l1"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cjm644i1b1a3r" path="res://Environment/UI/UI/CityState/City_State_Sad1.png" id="21_1pcbc"]
 [ext_resource type="Texture2D" uid="uid://cq3e3hv8eos2e" path="res://Environment/UI/UI/CityState/City_State_Sad2.png" id="22_ex27g"]
 [ext_resource type="Texture2D" uid="uid://ckw55ws7m5fps" path="res://Environment/UI/UI/CityState/City_State_Neutral.png" id="23_vhwlf"]
+[ext_resource type="Texture2D" uid="uid://caov8chodcfmk" path="res://Environment/UI/UI/UI_Main_background.png" id="24_q1wpk"]
 
 [sub_resource type="Animation" id="Animation_x13mk"]
 resource_name = "run"
@@ -208,3 +209,11 @@ script = ExtResource("18_j4a5j")
 libraries = {
 "": SubResource("AnimationLibrary_qvkhy")
 }
+
+[node name="MainBg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1300.0
+offset_top = 227.0
+offset_right = 620.0
+offset_bottom = 1307.0
+texture = ExtResource("24_q1wpk")
