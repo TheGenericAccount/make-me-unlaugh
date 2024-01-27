@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwu3w67ptxvt3"]
+[gd_scene load_steps=32 format=3 uid="uid://bwu3w67ptxvt3"]
 
-[ext_resource type="Texture2D" uid="uid://ciaegy6j66ud4" path="res://Environment/UI/UI/Happy_meter1.png" id="1_o6sfb"]
+[ext_resource type="Texture2D" uid="uid://r0tbkp3upl8r" path="res://Environment/UI/UI/Happy_meter1_NEWNEW.png" id="2_3jva2"]
 [ext_resource type="Texture2D" uid="uid://b0kn11y14berf" path="res://Environment/UI/UI/Happy_meter2.png" id="2_vy5l1"]
 [ext_resource type="Texture2D" uid="uid://be382ou8ler40" path="res://Environment/UI/UI/Happy_meter3.png" id="3_40sev"]
+[ext_resource type="Script" path="res://Environment/UI/ProgressTexture.gd" id="3_gv3ll"]
 [ext_resource type="Texture2D" uid="uid://ccw4q6vlinkqs" path="res://Environment/UI/UI/UI_Main.png" id="4_wchga"]
 [ext_resource type="Texture2D" uid="uid://dmuxf8uonaeop" path="res://Environment/UI/Treadmill/UI_Treadmill1.png" id="5_ppba2"]
 [ext_resource type="Texture2D" uid="uid://dyiiltwu5tv5a" path="res://Environment/UI/Treadmill/UI_Treadmill2.png" id="6_nl5nx"]
@@ -16,6 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://bw1v3kqsesq30" path="res://Environment/UI/Treadmill/UI_Treadmill10.png" id="14_3urso"]
 [ext_resource type="Texture2D" uid="uid://es7gsqfhmjan" path="res://Environment/UI/Treadmill/UI_Treadmill11.png" id="15_w2cke"]
 [ext_resource type="Texture2D" uid="uid://dsgm5i6dgibpi" path="res://Environment/UI/Treadmill/UI_Treadmill12.png" id="16_vxp72"]
+[ext_resource type="Script" path="res://Environment/UI/CityMood.gd" id="18_j4a5j"]
+[ext_resource type="Texture2D" uid="uid://boc4in6s7d1ne" path="res://Environment/UI/UI/CityState/City_State_Happy1.png" id="18_jjrbc"]
+[ext_resource type="Texture2D" uid="uid://l5jxthkbm36m" path="res://Environment/UI/UI/CityState/City_State_Happy2.png" id="19_ed4sa"]
+[ext_resource type="Texture2D" uid="uid://cjm644i1b1a3r" path="res://Environment/UI/UI/CityState/City_State_Sad1.png" id="21_1pcbc"]
+[ext_resource type="Texture2D" uid="uid://cq3e3hv8eos2e" path="res://Environment/UI/UI/CityState/City_State_Sad2.png" id="22_ex27g"]
+[ext_resource type="Texture2D" uid="uid://ckw55ws7m5fps" path="res://Environment/UI/UI/CityState/City_State_Neutral.png" id="23_vhwlf"]
 
 [sub_resource type="Animation" id="Animation_x13mk"]
 resource_name = "run"
@@ -55,6 +62,83 @@ _data = {
 "run": SubResource("Animation_x13mk")
 }
 
+[sub_resource type="Animation" id="Animation_6ouxl"]
+resource_name = "Happy"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("18_jjrbc"), ExtResource("19_ed4sa")]
+}
+
+[sub_resource type="Animation" id="Animation_r5gq6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_mx3o7"]
+resource_name = "Sad"
+length = 0.6
+loop_mode = 1
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("21_1pcbc"), ExtResource("22_ex27g")]
+}
+
+[sub_resource type="Animation" id="Animation_mhcbk"]
+resource_name = "Neutral"
+length = 0.5
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_vhwlf")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qvkhy"]
+_data = {
+"Happy": SubResource("Animation_6ouxl"),
+"Neutral": SubResource("Animation_mhcbk"),
+"RESET": SubResource("Animation_r5gq6"),
+"Sad": SubResource("Animation_mx3o7")
+}
+
 [node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -64,14 +148,6 @@ offset_right = 2192.0
 offset_bottom = 1207.0
 mouse_filter = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -1300.0
-offset_top = 227.0
-offset_right = 620.0
-offset_bottom = 1307.0
-texture = ExtResource("1_o6sfb")
-
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -1300.0
@@ -79,6 +155,16 @@ offset_top = 227.0
 offset_right = 620.0
 offset_bottom = 1307.0
 texture = ExtResource("2_vy5l1")
+
+[node name="ProgressTexture" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 307.0
+offset_right = 2140.0
+offset_bottom = 1387.0
+fill_mode = 3
+texture_progress = ExtResource("2_3jva2")
+script = ExtResource("3_gv3ll")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 layout_mode = 0
@@ -88,7 +174,7 @@ offset_right = 620.0
 offset_bottom = 1307.0
 texture = ExtResource("3_40sev")
 
-[node name="TextureRectMain" type="TextureRect" parent="."]
+[node name="Main" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -1300.0
 offset_top = 227.0
@@ -96,7 +182,7 @@ offset_right = 620.0
 offset_bottom = 1307.0
 texture = ExtResource("4_wchga")
 
-[node name="TextureRectTreadmill" type="TextureRect" parent="."]
+[node name="Treadmil" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -1300.0
 offset_top = 227.0
@@ -104,8 +190,21 @@ offset_right = 620.0
 offset_bottom = 1307.0
 texture = ExtResource("5_ppba2")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRectTreadmill"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Treadmil"]
 libraries = {
 "": SubResource("AnimationLibrary_n05oj")
 }
 autoplay = "run"
+
+[node name="CityMood" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1300.0
+offset_top = 227.0
+offset_right = 620.0
+offset_bottom = 1307.0
+script = ExtResource("18_j4a5j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CityMood"]
+libraries = {
+"": SubResource("AnimationLibrary_qvkhy")
+}

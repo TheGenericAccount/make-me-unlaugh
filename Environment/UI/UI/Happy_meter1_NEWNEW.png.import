@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wvebfkgy21an"
-path="res://.godot/imported/Happy_meter1.png-016d251fb63fff6e69e9a30bd8c43de8.ctex"
+uid="uid://r0tbkp3upl8r"
+path="res://.godot/imported/Happy_meter1_NEWNEW.png-a635e8e9317946ebb8060a3ab1adf3bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/UI/UI/Happy_meter1.png"
-dest_files=["res://.godot/imported/Happy_meter1.png-016d251fb63fff6e69e9a30bd8c43de8.ctex"]
+source_file="res://Environment/UI/UI/Happy_meter1_NEWNEW.png"
+dest_files=["res://.godot/imported/Happy_meter1_NEWNEW.png-a635e8e9317946ebb8060a3ab1adf3bd.ctex"]
 
 [params]
 
