@@ -1,21 +1,29 @@
 extends TextureRect
 class_name PriceManager
+const MAX_SUPPLY = 50
+const VALUE_PER_DEMAND = 0.5
 static func sell(type:String):
+	ScoreCounter.laugh-=(MAX_SUPPLY-supply[type])*VALUE_PER_DEMAND
 	supply[type]+=1
-	print(supply[type])
-	
 
 static var supply={
-	"toilet-paper":10,
-	"pencil-pack":10,
-	"dog-item":30,
+	"toilet-paper":25,
+	"pencil-pack":25,
+	"dog-item":10,
 }
+
+func _on_supply_timer_timeout():
+	for item in supply:
+		if supply[item] >= 3:
+			supply[item]+=randi_range(-3,1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$Supply.text=""
+	for item in supply:
+		$Supply.text+=str(supply[item])
+		$Supply.text+="\n"
