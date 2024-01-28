@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvq1douubrv0b"]
+
+[ext_resource type="Script" path="res://Environment/UI/Control.gd" id="1_b03yg"]
+[ext_resource type="Texture2D" uid="uid://d0mvamqpn3f76" path="res://Environment/Items/DogItem/depressedpuppy.png" id="2_h3xk7"]
+
+[node name="PriceContainer" type="Control"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_b03yg")
+type = "toilet-paper"
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 1.0
+offset_right = 97.0
+offset_bottom = 65.0
+texture = ExtResource("2_h3xk7")
+
+[node name="PriceTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 1.0
+offset_right = 183.0
+offset_bottom = 65.0
+texture = ExtResource("2_h3xk7")

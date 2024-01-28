@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bwu3w67ptxvt3"]
+[gd_scene load_steps=41 format=3 uid="uid://bwu3w67ptxvt3"]
 
 [ext_resource type="Texture2D" uid="uid://r0tbkp3upl8r" path="res://Environment/UI/UI/Happy_meter1_NEWNEW.png" id="2_3jva2"]
 [ext_resource type="Texture2D" uid="uid://xre0cct46j7c" path="res://Environment/UI/UI/Happy_meter2.png" id="2_vy5l1"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://ckw55ws7m5fps" path="res://Environment/UI/UI/CityState/City_State_Neutral.png" id="23_vhwlf"]
 [ext_resource type="Texture2D" uid="uid://caov8chodcfmk" path="res://Environment/UI/UI/UI_Main_background.png" id="24_q1wpk"]
 [ext_resource type="Script" path="res://Environment/UI/MainBg.gd" id="24_yon14"]
+[ext_resource type="PackedScene" uid="uid://cvq1douubrv0b" path="res://Levels/price_container.tscn" id="31_13est"]
 
 [sub_resource type="Animation" id="Animation_x8p0x"]
 length = 0.001
@@ -267,6 +268,16 @@ offset_bottom = 999.0
 [node name="SupplyTimer" type="Timer" parent="MainBg"]
 wait_time = 6.0
 autostart = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainBg"]
+layout_mode = 0
+offset_left = 1677.0
+offset_top = 292.0
+offset_right = 1879.0
+offset_bottom = 1019.0
+
+[node name="PriceContainer" parent="MainBg/VBoxContainer" instance=ExtResource("31_13est")]
+layout_mode = 2
 
 [node name="Main" type="TextureRect" parent="."]
 layout_mode = 0
