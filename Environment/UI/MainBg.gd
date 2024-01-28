@@ -3,7 +3,7 @@ class_name PriceManager
 const MAX_SUPPLY = 30
 const VALUE_PER_DEMAND = 2
 static func sell(type:String):
-	ScoreCounter.laugh-=(MAX_SUPPLY-supply[type])*VALUE_PER_DEMAND
+	ScoreCounter.laugh-=max((MAX_SUPPLY-supply[type])*VALUE_PER_DEMAND,0)
 	supply[type]+=1
 
 static var supply={
