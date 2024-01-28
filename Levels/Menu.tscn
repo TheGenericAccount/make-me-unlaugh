@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdqyk7kkxg3bj"]
+[gd_scene load_steps=10 format=3 uid="uid://bdqyk7kkxg3bj"]
 
 [ext_resource type="Texture2D" uid="uid://buq2ivkmxi0k3" path="res://Environment/Menu/MENU.png" id="1_njt1m"]
 [ext_resource type="Script" path="res://Levels/Menu.gd" id="1_wv6tm"]
 [ext_resource type="FontFile" uid="uid://cwqed0vvy07um" path="res://Environment/Menu/PaytoneOne-Regular.ttf" id="2_ivx0m"]
 [ext_resource type="Script" path="res://Levels/Button.gd" id="3_w6vgt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emjqn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xbm7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_txaap"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pqhb3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3cmmy"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -30,8 +40,14 @@ offset_top = 456.0
 offset_right = 1073.0
 offset_bottom = 562.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.299547, 0.299547, 0.299547, 1)
 theme_override_fonts/font = ExtResource("2_ivx0m")
 theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_emjqn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4xbm7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_txaap")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pqhb3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3cmmy")
 action_mode = 0
 text = "PLAY"
 script = ExtResource("3_w6vgt")
