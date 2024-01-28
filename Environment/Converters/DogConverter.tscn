@@ -46,7 +46,6 @@ initial_velocity = Vector2(500, 100)
 position = Vector2(0, 77)
 script = ExtResource("5_yes33")
 resource_to_spawn = ExtResource("7_rqsk5")
-probability = 0.3
 rotation_spread = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

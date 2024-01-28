@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://ckw55ws7m5fps" path="res://Environment/UI/UI/CityState/City_State_Neutral.png" id="23_vhwlf"]
 [ext_resource type="Texture2D" uid="uid://caov8chodcfmk" path="res://Environment/UI/UI/UI_Main_background.png" id="24_q1wpk"]
 [ext_resource type="Script" path="res://Environment/UI/MainBg.gd" id="24_yon14"]
-[ext_resource type="PackedScene" uid="uid://cvq1douubrv0b" path="res://Levels/price_container.tscn" id="31_13est"]
+[ext_resource type="PackedScene" path="res://Levels/price_container.tscn" id="31_13est"]
 
 [sub_resource type="Animation" id="Animation_x8p0x"]
 length = 0.001
