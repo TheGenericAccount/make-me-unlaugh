@@ -51,5 +51,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_3cmmy")
 action_mode = 0
 text = "PLAY"
 script = ExtResource("3_w6vgt")
+game = "res://Levels/game.tscn"
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
