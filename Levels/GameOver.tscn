@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://1ohca11o8w71"]
+
+[ext_resource type="Script" path="res://Levels/Intro/Comics1.gd" id="1_1q3a0"]
+[ext_resource type="Texture2D" uid="uid://c455t3fau17ry" path="res://Levels/Intro/ComicsPngs/gj_game_over_over.jpg" id="1_f810v"]
+[ext_resource type="FontFile" uid="uid://cwqed0vvy07um" path="res://Environment/Menu/PaytoneOne-Regular.ttf" id="2_i8a7h"]
+[ext_resource type="Script" path="res://Levels/Button.gd" id="3_drowk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wffqv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4rgap"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qd27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ex64f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a0c1m"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1q3a0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_f810v")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TryAgain" type="Button" parent="."]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 928.0
+offset_right = 1160.0
+offset_bottom = 1136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.211765, 0.211765, 0.211765, 1)
+theme_override_fonts/font = ExtResource("2_i8a7h")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wffqv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4rgap")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0qd27")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ex64f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a0c1m")
+text = "Try Again"
+script = ExtResource("3_drowk")
+game = "res://Levels/game.tscn"
+
+[connection signal="pressed" from="TryAgain" to="TryAgain" method="_on_pressed"]
