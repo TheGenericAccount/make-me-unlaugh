@@ -14,9 +14,17 @@ static var supply={
 	"steam-item":0,
 }
 
+static var rarity={
+	"toilet-paper":2,
+	"pencil-pack":2,
+	"dog-item":1,
+	"tear-item":1,
+	"steam-item":1,
+}
+
 func _on_supply_timer_timeout():
 	for item in supply:
-		if supply[item] >= 3:
+		if randi_range(1,rarity[item]) == 1 and supply[item] >= 3:
 			supply[item]+=randi_range(-3,1)
 
 # Called when the node enters the scene tree for the first time.
