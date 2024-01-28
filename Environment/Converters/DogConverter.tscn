@@ -14,10 +14,14 @@
 size = Vector2(123, 127)
 
 [node name="DogConverter" type="RigidBody2D"]
+disable_mode = 1
 collision_mask = 3
+can_sleep = false
 lock_rotation = true
 freeze = true
+freeze_mode = 1
 continuous_cd = 2
+linear_damp = 1.0
 script = ExtResource("1_13ojq")
 
 [node name="PickupLeft" type="Area2D" parent="."]
