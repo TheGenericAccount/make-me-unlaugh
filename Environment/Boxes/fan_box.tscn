@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://beli2n684dlmf"]
 
 [ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="1_gjj1d"]
-[ext_resource type="Texture2D" uid="uid://bpskjy2ai3bht" path="res://Environment/Movers/fan/fan2.png" id="2_goaip"]
+[ext_resource type="Texture2D" uid="uid://twd0o0i51wke" path="res://Environment/Boxes/fanbox.png" id="2_t1ctf"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_c5lky"]
 [ext_resource type="Script" path="res://Environment/UI/Treadmill/ConveyorComponent.gd" id="4_qqunb"]
 [ext_resource type="PackedScene" uid="uid://dyqwcf0xohajt" path="res://Environment/Movers/fan/fan.tscn" id="5_kpwfb"]
@@ -21,7 +21,7 @@ angular_damp = 1.0
 script = ExtResource("1_gjj1d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_goaip")
+texture = ExtResource("2_t1ctf")
 
 [node name="DragComponent" parent="." instance=ExtResource("3_c5lky")]
 

@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cquahwesqdl37"]
+[gd_scene load_steps=10 format=3 uid="uid://cquahwesqdl37"]
 
 [ext_resource type="PackedScene" uid="uid://ci3153isbxxtg" path="res://Environment/Goal/goal.tscn" id="1_nuy61"]
 [ext_resource type="Texture2D" uid="uid://bgpachfe10kpg" path="res://Environment/Background/planks.png" id="1_wirce"]
 [ext_resource type="PackedScene" uid="uid://boaufbfxdejk2" path="res://Environment/Dispensers/item_dispenser.tscn" id="3_5ry4f"]
 [ext_resource type="Texture2D" uid="uid://dbese6072xpsw" path="res://Environment/Box.png" id="3_trlrp"]
 [ext_resource type="PackedScene" uid="uid://bwu3w67ptxvt3" path="res://Environment/UI/ui.tscn" id="7_hol5f"]
-[ext_resource type="PackedScene" uid="uid://c8ik44itrdv81" path="res://Environment/Boxes/cloud_box.tscn" id="8_n50pm"]
 [ext_resource type="PackedScene" uid="uid://bv5d0wbsblgpe" path="res://Environment/Dispensers/PencilDispenser.tscn" id="16_j4was"]
 [ext_resource type="Script" path="res://Environment/Items/ItemParent.gd" id="16_xxgvq"]
 
@@ -33,7 +32,7 @@ position = Vector2(255, 58)
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Environment"]
-position = Vector2(-398, 1144)
+position = Vector2(-418, 1144)
 scale = Vector2(27.28, 1)
 collision_layer = 2
 metadata/_edit_group_ = true
@@ -43,10 +42,11 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_ubosm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D"]
+visible = false
 texture = ExtResource("3_trlrp")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Environment"]
-position = Vector2(1119, -98)
+position = Vector2(1114, -67)
 scale = Vector2(22.32, 1)
 collision_layer = 2
 metadata/_edit_group_ = true
@@ -56,6 +56,7 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_ubosm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D4"]
+visible = false
 texture = ExtResource("3_trlrp")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Environment"]
@@ -69,10 +70,11 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_sbvx3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D2"]
+visible = false
 texture = ExtResource("3_trlrp")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Environment"]
-position = Vector2(-87, 485)
+position = Vector2(-60, 484)
 scale = Vector2(0.919996, 13.96)
 collision_layer = 2
 metadata/_edit_group_ = true
@@ -82,16 +84,14 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_sbvx3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/StaticBody2D3"]
+visible = false
 texture = ExtResource("3_trlrp")
 
 [node name="UI" parent="." instance=ExtResource("7_hol5f")]
 metadata/_edit_lock_ = true
 
 [node name="GoalArea" parent="." instance=ExtResource("1_nuy61")]
-position = Vector2(1217, 981)
+position = Vector2(1216, 1013)
 
 [node name="PencilDispenser" parent="." instance=ExtResource("16_j4was")]
 position = Vector2(531, 48)
-
-[node name="DogPainting" parent="." instance=ExtResource("8_n50pm")]
-position = Vector2(512, 537)

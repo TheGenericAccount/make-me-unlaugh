@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://3v0ytxa5peu5"]
+[gd_scene load_steps=6 format=3 uid="uid://u3qjg2xo73h1"]
 
 [ext_resource type="Script" path="res://Levels/Transition.gd" id="1_yeii4"]
 
@@ -72,5 +72,7 @@ libraries = {
 "": SubResource("AnimationLibrary_1yw3u")
 }
 autoplay = "Fade"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

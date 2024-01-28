@@ -20,6 +20,7 @@ script = ExtResource("1_u7qvo")
 
 [node name="PickupTop" type="Area2D" parent="."]
 script = ExtResource("2_swfh8")
+needs_to_fulfill = 2
 accepted_items = Array[Script]([ExtResource("3_0q260")])
 metadata/_edit_group_ = true
 
