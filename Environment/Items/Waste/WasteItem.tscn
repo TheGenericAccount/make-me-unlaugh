@@ -8,7 +8,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
 bounce = 0.1
 
-[node name="DogItem" type="RigidBody2D"]
+[node name="WasteItem" type="RigidBody2D"]
 collision_mask = 7
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_o58at")
