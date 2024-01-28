@@ -32,7 +32,7 @@ position = Vector2(255, 58)
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Environment"]
-position = Vector2(-418, 1144)
+position = Vector2(48, 1143)
 scale = Vector2(27.28, 1)
 collision_layer = 2
 metadata/_edit_group_ = true
@@ -62,7 +62,7 @@ texture = ExtResource("3_trlrp")
 [node name="StaticBody2D2" type="StaticBody2D" parent="Environment"]
 position = Vector2(1350, 338)
 scale = Vector2(0.919996, 13.96)
-collision_layer = 2
+collision_layer = 4
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/StaticBody2D2"]

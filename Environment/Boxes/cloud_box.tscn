@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8ik44itrdv81"]
 
-[ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="1_or2q4"]
+[ext_resource type="Script" path="res://Environment/Items/DogItem/DogItem.gd" id="1_6bdd5"]
 [ext_resource type="Texture2D" uid="uid://4abs5x87lqxf" path="res://Environment/Boxes/steamerbox.png" id="2_kdfmr"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_cehon"]
 [ext_resource type="Script" path="res://Environment/UI/Treadmill/ConveyorComponent.gd" id="4_hlvge"]
@@ -18,7 +18,7 @@ lock_rotation = true
 continuous_cd = 2
 linear_damp = 1.0
 angular_damp = 1.0
-script = ExtResource("1_or2q4")
+script = ExtResource("1_6bdd5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_kdfmr")

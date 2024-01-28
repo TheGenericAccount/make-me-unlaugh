@@ -9,7 +9,7 @@ func _ready():
 
 
 func _process(delta):
-	if get_parent().global_position.x<1000:
+	if get_parent().global_position.x<1300:
 		ItemParent.number_of_tools+=1
 		get_parent().gravity_scale=1
 		var instance=item_to_spawn.instantiate()
@@ -18,5 +18,6 @@ func _process(delta):
 		instance.rotation=randf_range(-angle_randomness, angle_randomness)
 		instance.get_node("DragComponent").pick_up()
 		get_parent().queue_free()
-	if get_parent().global_position.y>1500:
+	if get_parent().global_position.y>1300 or get_parent().global_position.x>1450:
+		print(global_position.x)
 		get_parent().queue_free()

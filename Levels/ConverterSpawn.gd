@@ -8,9 +8,11 @@ class_name ConverterSpawn extends Node2D
 @export var max_velocity_randomness:float=1.5
 
 func spawn(use_item_parent=true)->void:
+	print("spawn", use_item_parent)
 	if(randf()>probability):
 		return
 	var item_parent=ItemParent.instance if use_item_parent else get_parent()
+	print(item_parent)
 	var instance:RigidBody2D=resource_to_spawn.instantiate()
 	item_parent.add_child(instance)
 	instance.global_position=global_position

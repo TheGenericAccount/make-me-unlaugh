@@ -30,6 +30,9 @@ func _process(_delta):
 				parent.freeze=true
 			parent.gravity_scale=initial_gravity_scale;
 			parent.linear_damp=MOUSE_DEFAULT_DAMP
+	if (parent.global_position.x>1350 and 
+	parent.get_node_or_null("ConveyorComponent")==null):
+		parent.queue_free()
 
 func _physics_process(_delta:float):
 	if currently_dragged==parent:
