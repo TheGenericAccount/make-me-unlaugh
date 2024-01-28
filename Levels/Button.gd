@@ -1,19 +1,16 @@
 extends Button
 var was_pressed = false
 
-@export_file("*.tscn") var game:String 
-
-func _ready():
-	pressed.connect(_on_pressed)
+var game = preload("res://Levels/game.tscn")
 
 func _process(delta):
 	pass
 
 func _on_pressed():
-	print(was_pressed)
 	if !was_pressed:
-		print("change s", game)
-		Transition.change_scene(load(game).instantiate())
+		Transition.change_scene(game)
 		was_pressed = true
 
-
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "UnFade":
+		get_tree().change_scene_to_packed(game)
