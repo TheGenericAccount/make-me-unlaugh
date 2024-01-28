@@ -94,4 +94,4 @@ metadata/_edit_lock_ = true
 position = Vector2(1216, 1013)
 
 [node name="PencilDispenser" parent="." instance=ExtResource("16_j4was")]
-position = Vector2(531, 48)
+position = Vector2(530, 64)
