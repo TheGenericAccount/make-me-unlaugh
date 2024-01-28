@@ -5,7 +5,8 @@ extends Node2D
 @export var SPAWN_INTERVAL:float=5
 @export var MAX_TO_SPAWN:int=999
 @export var X_SPREAD:float=100
-const SPAWN_THROTTLE_BASE=1.2
+const SPAWN_THROTTLE_BASE=2
+const SPAWN_THROTTLE_BEGIN=10
 var items_spawned=0
 
 func _ready():
@@ -17,7 +18,7 @@ func _ready():
 
 func _on_timer_timeout():
 	spawn()
-	var total_items=ItemParent.number_of_items
+	var total_items=max(0, ItemParent.number_of_items-SPAWN_THROTTLE_BEGIN)
 	$Timer.wait_time=SPAWN_INTERVAL*pow(SPAWN_THROTTLE_BASE, total_items)
 
 func spawn()->void:
