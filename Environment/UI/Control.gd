@@ -9,8 +9,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(PriceManager.supply[type]<10):
-		$PriceTexture.texture=preload("res://Environment/Items/DogItem/depressedpuppy.png")
+		$PriceTexture.texture=preload("res://Environment/UI/ProgressTextures/High.png")
 	elif(PriceManager.supply[type]>20):
-		$PriceTexture.texture=preload("res://Environment/Items/Pencil/pencils.png")
+		$PriceTexture.texture=preload("res://Environment/UI/ProgressTextures/Low.png")
 	else:
-		$PriceTexture.texture=preload("res://Environment/Items/DogItem/depressedpuppy.png")
+		$PriceTexture.texture=preload("res://Environment/UI/ProgressTextures/Medium.png")

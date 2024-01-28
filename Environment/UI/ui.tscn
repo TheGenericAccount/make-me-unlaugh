@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bwu3w67ptxvt3"]
+[gd_scene load_steps=46 format=3 uid="uid://bwu3w67ptxvt3"]
 
 [ext_resource type="Texture2D" uid="uid://r0tbkp3upl8r" path="res://Environment/UI/UI/Happy_meter1_NEWNEW.png" id="2_3jva2"]
 [ext_resource type="Texture2D" uid="uid://xre0cct46j7c" path="res://Environment/UI/UI/Happy_meter2.png" id="2_vy5l1"]
@@ -31,7 +31,12 @@
 [ext_resource type="Texture2D" uid="uid://ckw55ws7m5fps" path="res://Environment/UI/UI/CityState/City_State_Neutral.png" id="23_vhwlf"]
 [ext_resource type="Texture2D" uid="uid://caov8chodcfmk" path="res://Environment/UI/UI/UI_Main_background.png" id="24_q1wpk"]
 [ext_resource type="Script" path="res://Environment/UI/MainBg.gd" id="24_yon14"]
-[ext_resource type="PackedScene" path="res://Levels/price_container.tscn" id="31_13est"]
+[ext_resource type="Script" path="res://Environment/UI/Control.gd" id="31_88k5l"]
+[ext_resource type="Texture2D" uid="uid://d0mvamqpn3f76" path="res://Environment/Items/DogItem/depressedpuppy.png" id="32_bs7yi"]
+[ext_resource type="Texture2D" uid="uid://b4gy7duygyi62" path="res://Environment/Items/ToiletPaper/bogroll1.png" id="32_o5hsn"]
+[ext_resource type="Texture2D" uid="uid://utxmf3fvb13d" path="res://Environment/Items/Pencil/pencils.png" id="34_jqtbe"]
+[ext_resource type="Texture2D" uid="uid://ddq5jy57t1al2" path="res://Environment/Items/Tear/tearjar.png" id="35_ddxoa"]
+[ext_resource type="Texture2D" uid="uid://bsl4qw4l5o3q6" path="res://Environment/Items/Steam/depressionsteam.png" id="36_1fxcn"]
 
 [sub_resource type="Animation" id="Animation_x8p0x"]
 length = 0.001
@@ -204,7 +209,7 @@ autoplay = "run"
 [node name="Timer" type="Timer" parent="Treadmil"]
 
 [node name="SupplyBoxDrop" type="Node2D" parent="."]
-position = Vector2(79, 323)
+position = Vector2(87, 144)
 script = ExtResource("17_agb73")
 
 [node name="Timer" type="Timer" parent="SupplyBoxDrop"]
@@ -259,6 +264,7 @@ texture = ExtResource("24_q1wpk")
 script = ExtResource("24_yon14")
 
 [node name="Supply" type="Label" parent="MainBg"]
+visible = false
 layout_mode = 0
 offset_left = 1675.0
 offset_top = 296.0
@@ -276,8 +282,115 @@ offset_top = 292.0
 offset_right = 1879.0
 offset_bottom = 1019.0
 
-[node name="PriceContainer" parent="MainBg/VBoxContainer" instance=ExtResource("31_13est")]
+[node name="PriceContainer" type="Control" parent="MainBg/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+script = ExtResource("31_88k5l")
+type = "toilet-paper"
+
+[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 1.0
+offset_right = 97.0
+offset_bottom = 65.0
+texture = ExtResource("32_o5hsn")
+
+[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 1.0
+offset_right = 183.0
+offset_bottom = 65.0
+texture = ExtResource("32_bs7yi")
+
+[node name="PriceContainer2" type="Control" parent="MainBg/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+script = ExtResource("31_88k5l")
+type = "pencil-pack"
+
+[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer2"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 1.0
+offset_right = 97.0
+offset_bottom = 65.0
+texture = ExtResource("34_jqtbe")
+
+[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer2"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 1.0
+offset_right = 183.0
+offset_bottom = 65.0
+texture = ExtResource("32_bs7yi")
+
+[node name="PriceContainer3" type="Control" parent="MainBg/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+script = ExtResource("31_88k5l")
+type = "dog-item"
+
+[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer3"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 1.0
+offset_right = 97.0
+offset_bottom = 65.0
+texture = ExtResource("32_bs7yi")
+
+[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer3"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 1.0
+offset_right = 183.0
+offset_bottom = 65.0
+texture = ExtResource("32_bs7yi")
+
+[node name="PriceContainer4" type="Control" parent="MainBg/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+script = ExtResource("31_88k5l")
+type = "tear-item"
+
+[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer4"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 1.0
+offset_right = 97.0
+offset_bottom = 65.0
+texture = ExtResource("35_ddxoa")
+
+[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer4"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 1.0
+offset_right = 183.0
+offset_bottom = 65.0
+texture = ExtResource("32_bs7yi")
+
+[node name="PriceContainer5" type="Control" parent="MainBg/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+script = ExtResource("31_88k5l")
+type = "steam-item"
+
+[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer5"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 1.0
+offset_right = 97.0
+offset_bottom = 65.0
+texture = ExtResource("36_1fxcn")
+
+[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer5"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 1.0
+offset_right = 183.0
+offset_bottom = 65.0
+texture = ExtResource("32_bs7yi")
 
 [node name="Main" type="TextureRect" parent="."]
 layout_mode = 0
