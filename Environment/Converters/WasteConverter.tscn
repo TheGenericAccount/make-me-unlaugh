@@ -1,0 +1,48 @@
+[gd_scene load_steps=13 format=3 uid="uid://yhl37cfslsht"]
+
+[ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="1_brpth"]
+[ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="2_83qcg"]
+[ext_resource type="Script" path="res://Environment/Items/DogItem/DogItem.gd" id="3_2s6jr"]
+[ext_resource type="Script" path="res://Environment/Items/Tear/TearItem.gd" id="3_5fjpi"]
+[ext_resource type="Script" path="res://Environment/Items/Pencil/Pencil.gd" id="4_58goj"]
+[ext_resource type="Script" path="res://Levels/ConverterSpawn.gd" id="4_sm2b7"]
+[ext_resource type="Script" path="res://Environment/Items/Steam/SteamItem.gd" id="5_j236o"]
+[ext_resource type="Texture2D" uid="uid://digia6gkb1li5" path="res://Environment/Converters/waster.png" id="6_6uwo0"]
+[ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="7_aiu5k"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="7_vd1gi"]
+[ext_resource type="PackedScene" uid="uid://ckojpwiia0oc8" path="res://Environment/Items/Waste/WasteItem.tscn" id="9_qt87e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rt0jo"]
+size = Vector2(123, 127)
+
+[node name="CloudConverter" type="RigidBody2D"]
+disable_mode = 1
+collision_mask = 3
+lock_rotation = true
+freeze = true
+continuous_cd = 2
+script = ExtResource("1_brpth")
+
+[node name="PickupTop" type="Area2D" parent="."]
+script = ExtResource("2_83qcg")
+accepted_items = Array[Script]([ExtResource("3_2s6jr"), ExtResource("4_58goj"), ExtResource("5_j236o"), ExtResource("3_5fjpi"), ExtResource("7_aiu5k")])
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupTop"]
+polygon = PackedVector2Array(-47, -70, -3, -42, 47, -70)
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(-96, -1)
+script = ExtResource("4_sm2b7")
+resource_to_spawn = ExtResource("9_qt87e")
+initial_velocity = Vector2(-1000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -3.5)
+shape = SubResource("RectangleShape2D_rt0jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("6_6uwo0")
+flip_h = true
+
+[node name="DragComponent" parent="." instance=ExtResource("7_vd1gi")]

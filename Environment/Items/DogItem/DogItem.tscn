@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmvi18i5nm2k2"]
 
-[ext_resource type="Script" path="res://Environment/Items/Tear/TearItem.gd" id="1_164vq"]
+[ext_resource type="Script" path="res://Environment/Items/Waste/WasteItem.gd" id="1_pajdc"]
 [ext_resource type="Texture2D" uid="uid://d0mvamqpn3f76" path="res://Environment/Items/DogItem/depressedpuppy.png" id="2_3vae8"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_g0h1x"]
 [ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_n1a7u"]
@@ -15,7 +15,7 @@ physics_material_override = SubResource("PhysicsMaterial_o58at")
 continuous_cd = 2
 linear_damp = 1.0
 angular_damp = 1.0
-script = ExtResource("1_164vq")
+script = ExtResource("1_pajdc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_3vae8")
@@ -24,7 +24,7 @@ texture = ExtResource("2_3vae8")
 
 [node name="RewardComponent" type="Node2D" parent="."]
 script = ExtResource("4_n1a7u")
-type = "dog-item"
+type = "trash-item"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-32, -18, -32, -7, -11, 31, -3, 31, 32, 11, 33, 5, 3, -34)
+polygon = PackedVector2Array(-31, -18, -31, -6, -12, 30, -4, 31, 33, 11, 32, 4, 5, -33)

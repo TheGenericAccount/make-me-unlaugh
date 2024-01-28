@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bwu3w67ptxvt3"]
+[gd_scene load_steps=47 format=3 uid="uid://bwu3w67ptxvt3"]
 
 [ext_resource type="Texture2D" uid="uid://r0tbkp3upl8r" path="res://Environment/UI/UI/Happy_meter1_NEWNEW.png" id="2_3jva2"]
 [ext_resource type="Texture2D" uid="uid://xre0cct46j7c" path="res://Environment/UI/UI/Happy_meter2.png" id="2_vy5l1"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cjy4uvx6ljspd" path="res://Environment/Boxes/conveyor_box.tscn" id="20_rk71h"]
 [ext_resource type="Texture2D" uid="uid://cjm644i1b1a3r" path="res://Environment/UI/UI/CityState/City_State_Sad1.png" id="21_1pcbc"]
 [ext_resource type="PackedScene" uid="uid://c8ik44itrdv81" path="res://Environment/Boxes/cloud_box.tscn" id="21_42o0a"]
+[ext_resource type="PackedScene" uid="uid://covk86iugaibn" path="res://Environment/Boxes/waste_box.tscn" id="21_me5eh"]
 [ext_resource type="Texture2D" uid="uid://cq3e3hv8eos2e" path="res://Environment/UI/UI/CityState/City_State_Sad2.png" id="22_ex27g"]
 [ext_resource type="PackedScene" uid="uid://beli2n684dlmf" path="res://Environment/Boxes/fan_box.tscn" id="22_pc180"]
 [ext_resource type="Texture2D" uid="uid://ckw55ws7m5fps" path="res://Environment/UI/UI/CityState/City_State_Neutral.png" id="23_vhwlf"]
@@ -217,15 +218,21 @@ wait_time = 100.0
 
 [node name="Waves" type="Node2D" parent="SupplyBoxDrop"]
 
-[node name="Wave2" type="Node2D" parent="SupplyBoxDrop/Waves"]
+[node name="Wave5" type="Node2D" parent="SupplyBoxDrop/Waves"]
 script = ExtResource("18_a4cee")
-resource_to_spawn = ExtResource("19_msl54")
+resource_to_spawn = ExtResource("21_me5eh")
 x_spread = 0.0
 rotation_spread = 0.0
 
 [node name="Wave" type="Node2D" parent="SupplyBoxDrop/Waves"]
 script = ExtResource("18_a4cee")
 resource_to_spawn = ExtResource("20_rk71h")
+x_spread = 0.0
+rotation_spread = 0.0
+
+[node name="Wave2" type="Node2D" parent="SupplyBoxDrop/Waves"]
+script = ExtResource("18_a4cee")
+resource_to_spawn = ExtResource("19_msl54")
 x_spread = 0.0
 rotation_spread = 0.0
 

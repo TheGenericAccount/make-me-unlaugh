@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckojpwiia0oc8"]
+
+[ext_resource type="Script" path="res://Environment/Items/DogItem/DogItem.gd" id="1_1vfr3"]
+[ext_resource type="Texture2D" uid="uid://q3pfjswvdo5v" path="res://Environment/Items/Waste/puppyremains.png" id="2_1xecr"]
+[ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_4p6u4"]
+[ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_av3in"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
+bounce = 0.1
+
+[node name="DogItem" type="RigidBody2D"]
+collision_mask = 7
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_o58at")
+continuous_cd = 2
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_1vfr3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1xecr")
+
+[node name="DragComponent" parent="." instance=ExtResource("3_4p6u4")]
+
+[node name="RewardComponent" type="Node2D" parent="."]
+script = ExtResource("4_av3in")
+type = "trash-item"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-6, -16, -25, -5, -33, 9, -30, 25, -17, 31, 21, 32, 29, 22, 32, 9, 25, -4, 9, -14, 9, -19, 14, -22, 18, -32, 8, -30, -4, -31)

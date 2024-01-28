@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://jy1komwamcpy"]
 
-[ext_resource type="Script" path="res://Environment/Items/Tear/TearItem.gd" id="1_8cl3n"]
+[ext_resource type="Script" path="res://Environment/Items/Steam/SteamItem.gd" id="1_6r51q"]
 [ext_resource type="Texture2D" uid="uid://bsl4qw4l5o3q6" path="res://Environment/Items/Steam/depressionsteam.png" id="2_c2owi"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_3da2e"]
 [ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_7fjkk"]
@@ -16,7 +16,7 @@ gravity_scale = -0.1
 continuous_cd = 2
 linear_damp = 1.0
 angular_damp = 1.0
-script = ExtResource("1_8cl3n")
+script = ExtResource("1_6r51q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_c2owi")

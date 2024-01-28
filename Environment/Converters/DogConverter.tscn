@@ -25,12 +25,12 @@ continuous_cd = 2
 linear_damp = 1.0
 script = ExtResource("1_13ojq")
 
-[node name="PickupLeft" type="Area2D" parent="."]
+[node name="PickupTop" type="Area2D" parent="."]
 script = ExtResource("2_bax3h")
 accepted_items = Array[Script]([ExtResource("3_n20qg")])
 metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupLeft"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupTop"]
 polygon = PackedVector2Array(-67, -47, -46, -2, -67, 46)
 
 [node name="PickupRight" type="Area2D" parent="."]

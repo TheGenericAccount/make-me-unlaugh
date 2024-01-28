@@ -12,6 +12,7 @@ static var supply={
 	"dog-item":10,
 	"tear-item":20,
 	"steam-item":0,
+	"trash-item":15,
 }
 
 static var rarity={
@@ -20,6 +21,7 @@ static var rarity={
 	"dog-item":1,
 	"tear-item":1,
 	"steam-item":1,
+	"trash-item":2
 }
 
 func _on_supply_timer_timeout():

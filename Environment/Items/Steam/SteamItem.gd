@@ -1,0 +1,1 @@
+class_name SteamItem extends RigidBody2D
