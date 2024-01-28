@@ -22,6 +22,7 @@ script = ExtResource("1_c0ei4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hepel")
+flip_h = true
 
 [node name="DragComponent" parent="." instance=ExtResource("3_s15gi")]
 
