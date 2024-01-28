@@ -203,7 +203,7 @@ autoplay = "run"
 [node name="Timer" type="Timer" parent="Treadmil"]
 
 [node name="SupplyBoxDrop" type="Node2D" parent="."]
-position = Vector2(79, 323)
+position = Vector2(87, 144)
 script = ExtResource("17_agb73")
 
 [node name="Timer" type="Timer" parent="SupplyBoxDrop"]
