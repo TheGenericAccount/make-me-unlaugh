@@ -13,11 +13,13 @@ func _ready():
 
 func _physics_process(delta):
 	var overlapping=$WindArea.get_overlapping_bodies()
-	for body in overlapping:
-		print(body)
+	for body:PhysicsBody2D in overlapping:
+		if body==self:
+			continue
+		print(body.collision_layer)
 		if body is RigidBody2D:
 			if body.get_node_or_null("ConveyorComponent")!=null:
-				return
+				continue
 			#if body.get_node_or_null("RewardComponent")==null:
 			#	return
 			var distance=global_position.distance_to(body.global_position)
