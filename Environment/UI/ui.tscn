@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bwu3w67ptxvt3"]
+[gd_scene load_steps=53 format=3 uid="uid://bwu3w67ptxvt3"]
 
 [ext_resource type="Texture2D" uid="uid://r0tbkp3upl8r" path="res://Environment/UI/UI/Happy_meter1_NEWNEW.png" id="2_3jva2"]
 [ext_resource type="Texture2D" uid="uid://xre0cct46j7c" path="res://Environment/UI/UI/Happy_meter2.png" id="2_vy5l1"]
@@ -37,10 +37,13 @@
 [ext_resource type="AudioStream" uid="uid://8torayny12dj" path="res://Sound/SFX/CrowdLaugh2.ogg" id="31_twisx"]
 [ext_resource type="Texture2D" uid="uid://d0mvamqpn3f76" path="res://Environment/Items/DogItem/depressedpuppy.png" id="32_bs7yi"]
 [ext_resource type="Texture2D" uid="uid://b4gy7duygyi62" path="res://Environment/Items/ToiletPaper/bogroll1.png" id="32_o5hsn"]
+[ext_resource type="Script" path="res://Tools/TextOnHoover.gd" id="34_0mgr0"]
 [ext_resource type="Texture2D" uid="uid://utxmf3fvb13d" path="res://Environment/Items/Pencil/pencils.png" id="34_jqtbe"]
 [ext_resource type="Texture2D" uid="uid://ddq5jy57t1al2" path="res://Environment/Items/Tear/tearjar.png" id="35_ddxoa"]
 [ext_resource type="Texture2D" uid="uid://bsl4qw4l5o3q6" path="res://Environment/Items/Steam/depressionsteam.png" id="36_1fxcn"]
 [ext_resource type="Texture2D" uid="uid://q3pfjswvdo5v" path="res://Environment/Items/Waste/puppyremains.png" id="38_60kid"]
+[ext_resource type="FontFile" uid="uid://cwqed0vvy07um" path="res://Environment/Menu/PaytoneOne-Regular.ttf" id="42_4paik"]
+[ext_resource type="Script" path="res://Environment/UI/TimeCounter.gd" id="43_x3hfa"]
 
 [sub_resource type="Animation" id="Animation_x8p0x"]
 length = 0.001
@@ -164,119 +167,8 @@ offset_left = 1300.0
 offset_top = -227.0
 offset_right = 2192.0
 offset_bottom = 1207.0
-mouse_filter = 1
-
-[node name="ProgressBackground" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -1300.0
-offset_top = 227.0
-offset_right = 620.0
-offset_bottom = 1307.0
-texture = ExtResource("2_vy5l1")
-
-[node name="ProgressTexture" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = 220.0
-offset_top = 307.0
-offset_right = 2140.0
-offset_bottom = 1387.0
-step = 0.01
-value = 50.0
-fill_mode = 3
-texture_progress = ExtResource("2_3jva2")
-script = ExtResource("3_fecir")
-
-[node name="Timer" type="Timer" parent="ProgressTexture"]
-wait_time = 30.0
-autostart = true
-
-[node name="Smiles" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -1300.0
-offset_top = 227.0
-offset_right = 620.0
-offset_bottom = 1307.0
-texture = ExtResource("3_40sev")
-
-[node name="Treadmil" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -1300.0
-offset_top = 227.0
-offset_right = 620.0
-offset_bottom = 1307.0
-texture = ExtResource("5_ppba2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Treadmil"]
-libraries = {
-"": SubResource("AnimationLibrary_n05oj")
-}
-autoplay = "run"
-
-[node name="Timer" type="Timer" parent="Treadmil"]
-
-[node name="SupplyBoxDrop" type="Node2D" parent="."]
-position = Vector2(87, 144)
-script = ExtResource("17_agb73")
-
-[node name="Timer" type="Timer" parent="SupplyBoxDrop"]
-wait_time = 100.0
-
-[node name="Waves" type="Node2D" parent="SupplyBoxDrop"]
-
-[node name="Wave5" type="Node2D" parent="SupplyBoxDrop/Waves"]
-script = ExtResource("18_a4cee")
-resource_to_spawn = ExtResource("21_me5eh")
-x_spread = 0.0
-rotation_spread = 0.0
-
-[node name="Wave" type="Node2D" parent="SupplyBoxDrop/Waves"]
-script = ExtResource("18_a4cee")
-resource_to_spawn = ExtResource("20_rk71h")
-x_spread = 0.0
-rotation_spread = 0.0
-
-[node name="Wave2" type="Node2D" parent="SupplyBoxDrop/Waves"]
-script = ExtResource("18_a4cee")
-resource_to_spawn = ExtResource("19_msl54")
-x_spread = 0.0
-rotation_spread = 0.0
-
-[node name="Wave3" type="Node2D" parent="SupplyBoxDrop/Waves"]
-script = ExtResource("18_a4cee")
-resource_to_spawn = ExtResource("21_42o0a")
-x_spread = 0.0
-rotation_spread = 0.0
-
-[node name="Wave4" type="Node2D" parent="SupplyBoxDrop/Waves"]
-script = ExtResource("18_a4cee")
-resource_to_spawn = ExtResource("22_pc180")
-x_spread = 0.0
-rotation_spread = 0.0
-
-[node name="CityMood" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -1300.0
-offset_top = 227.0
-offset_right = 620.0
-offset_bottom = 1307.0
-script = ExtResource("18_j4a5j")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CityMood"]
-libraries = {
-"": SubResource("AnimationLibrary_qvkhy")
-}
-
-[node name="LaughTimer" type="Timer" parent="CityMood"]
-wait_time = 3.0
-autostart = true
-
-[node name="Sound1" type="AudioStreamPlayer2D" parent="CityMood"]
-stream = ExtResource("30_vlaqf")
-volume_db = 10.0
-
-[node name="Sound2" type="AudioStreamPlayer2D" parent="CityMood"]
-stream = ExtResource("31_twisx")
-volume_db = 10.0
+mouse_filter = 2
+mouse_default_cursor_shape = 6
 
 [node name="PriceManager" type="TextureRect" parent="."]
 layout_mode = 0
@@ -296,15 +188,17 @@ offset_right = 1882.0
 offset_bottom = 999.0
 
 [node name="SupplyTimer" type="Timer" parent="PriceManager"]
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PriceManager"]
 layout_mode = 0
-offset_left = 1677.0
-offset_top = 367.0
+offset_left = 1669.0
+offset_top = 348.0
 offset_right = 1879.0
 offset_bottom = 1019.0
+script = ExtResource("34_0mgr0")
+panel = NodePath("../../Tutorial/DiseaseImmunityPanel")
 
 [node name="PriceContainer" type="Control" parent="PriceManager/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
@@ -438,6 +332,118 @@ offset_right = 183.0
 offset_bottom = 65.0
 texture = ExtResource("32_bs7yi")
 
+[node name="ProgressBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1300.0
+offset_top = 227.0
+offset_right = 620.0
+offset_bottom = 1307.0
+texture = ExtResource("2_vy5l1")
+
+[node name="ProgressTexture" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 307.0
+offset_right = 2140.0
+offset_bottom = 1387.0
+step = 0.01
+value = 50.0
+fill_mode = 3
+texture_progress = ExtResource("2_3jva2")
+script = ExtResource("3_fecir")
+
+[node name="Timer" type="Timer" parent="ProgressTexture"]
+wait_time = 30.0
+autostart = true
+
+[node name="Smiles" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1300.0
+offset_top = 227.0
+offset_right = 620.0
+offset_bottom = 1307.0
+texture = ExtResource("3_40sev")
+
+[node name="Treadmil" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1300.0
+offset_top = 227.0
+offset_right = 620.0
+offset_bottom = 1307.0
+texture = ExtResource("5_ppba2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Treadmil"]
+libraries = {
+"": SubResource("AnimationLibrary_n05oj")
+}
+autoplay = "run"
+
+[node name="Timer" type="Timer" parent="Treadmil"]
+
+[node name="SupplyBoxDrop" type="Node2D" parent="."]
+position = Vector2(87, 144)
+script = ExtResource("17_agb73")
+
+[node name="Timer" type="Timer" parent="SupplyBoxDrop"]
+wait_time = 100.0
+
+[node name="Waves" type="Node2D" parent="SupplyBoxDrop"]
+
+[node name="Wave5" type="Node2D" parent="SupplyBoxDrop/Waves"]
+script = ExtResource("18_a4cee")
+resource_to_spawn = ExtResource("21_me5eh")
+x_spread = 0.0
+rotation_spread = 0.0
+
+[node name="Wave" type="Node2D" parent="SupplyBoxDrop/Waves"]
+script = ExtResource("18_a4cee")
+resource_to_spawn = ExtResource("20_rk71h")
+x_spread = 0.0
+rotation_spread = 0.0
+
+[node name="Wave2" type="Node2D" parent="SupplyBoxDrop/Waves"]
+script = ExtResource("18_a4cee")
+resource_to_spawn = ExtResource("19_msl54")
+x_spread = 0.0
+rotation_spread = 0.0
+
+[node name="Wave3" type="Node2D" parent="SupplyBoxDrop/Waves"]
+script = ExtResource("18_a4cee")
+resource_to_spawn = ExtResource("21_42o0a")
+x_spread = 0.0
+rotation_spread = 0.0
+
+[node name="Wave4" type="Node2D" parent="SupplyBoxDrop/Waves"]
+script = ExtResource("18_a4cee")
+resource_to_spawn = ExtResource("22_pc180")
+x_spread = 0.0
+rotation_spread = 0.0
+
+[node name="CityMood" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1300.0
+offset_top = 227.0
+offset_right = 620.0
+offset_bottom = 1307.0
+script = ExtResource("18_j4a5j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CityMood"]
+libraries = {
+"": SubResource("AnimationLibrary_qvkhy")
+}
+
+[node name="LaughTimer" type="Timer" parent="CityMood"]
+wait_time = 3.0
+autostart = true
+
+[node name="Sound1" type="AudioStreamPlayer2D" parent="CityMood"]
+stream = ExtResource("30_vlaqf")
+volume_db = 10.0
+
+[node name="Sound2" type="AudioStreamPlayer2D" parent="CityMood"]
+stream = ExtResource("31_twisx")
+volume_db = 10.0
+
 [node name="Main" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -1300.0
@@ -445,8 +451,111 @@ offset_top = 227.0
 offset_right = 620.0
 offset_bottom = 1307.0
 texture = ExtResource("4_wchga")
+script = ExtResource("43_x3hfa")
 
+[node name="Label" type="Label" parent="Main"]
+layout_mode = 0
+offset_left = 1603.0
+offset_top = 7.0
+offset_right = 1786.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("42_4paik")
+theme_override_font_sizes/font_size = 40
+text = "88:88"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DiseaseGaugePanel" type="ColorRect" parent="Tutorial"]
+visible = false
+layout_mode = 0
+offset_left = -320.0
+offset_top = 261.0
+offset_right = 159.0
+offset_bottom = 400.0
+color = Color(0.541176, 0.729412, 0.647059, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Tutorial/DiseaseGaugePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="Tutorial/DiseaseGaugePanel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("42_4paik")
+text = "Disease spread index
+
+ You don't  want to know what happens when the bar fills up"
+autowrap_mode = 3
+
+[node name="DiseaseImmunityPanel" type="ColorRect" parent="Tutorial"]
+visible = false
+layout_mode = 0
+offset_left = -318.0
+offset_top = 973.0
+offset_right = 161.0
+offset_bottom = 1208.0
+color = Color(0.541176, 0.729412, 0.647059, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Tutorial/DiseaseImmunityPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="Tutorial/DiseaseImmunityPanel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("42_4paik")
+text = "Disease imunity table.
+
+ As the laughing virus is treated with the same item, it becomes resistant to it.
+
+Blue is the most effective, red is the least effective."
+autowrap_mode = 3
+
+[node name="BarTrigger" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 220.0
+offset_top = 303.0
+offset_right = 339.0
+offset_bottom = 892.0
+script = ExtResource("34_0mgr0")
+panel = NodePath("../Tutorial/DiseaseGaugePanel")
+
+[node name="ImmunityTrigger" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 368.0
+offset_top = 513.0
+offset_right = 587.0
+offset_bottom = 1229.0
+script = ExtResource("34_0mgr0")
+panel = NodePath("../Tutorial/DiseaseImmunityPanel")
+
+[connection signal="timeout" from="PriceManager/SupplyTimer" to="PriceManager" method="_on_supply_timer_timeout"]
+[connection signal="mouse_entered" from="PriceManager/VBoxContainer" to="PriceManager/VBoxContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PriceManager/VBoxContainer" to="PriceManager/VBoxContainer" method="_on_mouse_exited"]
 [connection signal="timeout" from="ProgressTexture/Timer" to="ProgressTexture" method="increase_laugh_per_second"]
 [connection signal="timeout" from="SupplyBoxDrop/Timer" to="SupplyBoxDrop" method="_on_timer_timeout"]
 [connection signal="timeout" from="CityMood/LaughTimer" to="CityMood" method="_on_laugh_timer_timeout"]
-[connection signal="timeout" from="PriceManager/SupplyTimer" to="PriceManager" method="_on_supply_timer_timeout"]

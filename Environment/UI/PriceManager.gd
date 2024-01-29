@@ -7,13 +7,15 @@ static func sell(type:String):
 	ScoreCounter.laugh-=max((MAX_SUPPLY-supply[type])*VALUE_PER_DEMAND,MIN_PRICE)
 	supply[type]+=1
 
-static var supply={
-	"toilet-paper":15,
-	"pencil-pack":15,
+const STARTING_SUPPLY={
+	"toilet-paper":10,
+	"pencil-pack":10,
 	"dog-item":0,
 	"tear-item":10,
 	"steam-item":0,
 	"trash-item":10,
+}
+static var supply={
 }
 
 static var price_increase_probability={
@@ -22,7 +24,7 @@ static var price_increase_probability={
 	"dog-item":0.15,
 	"tear-item":.25,
 	"steam-item":.25,
-	"trash-item":0.15
+	"trash-item":0.2
 }
 
 func _on_supply_timer_timeout():
@@ -33,7 +35,7 @@ func _on_supply_timer_timeout():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	supply=STARTING_SUPPLY.duplicate()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

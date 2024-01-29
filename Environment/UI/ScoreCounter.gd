@@ -1,7 +1,7 @@
 class_name ScoreCounter
 extends TextureProgressBar
 
-const BASE_LAUGH_INCREASE_SPEED = 1
+const BASE_LAUGH_INCREASE_SPEED = 0.5
 const MAX_LAUGH_INCREASE_SPEED = 10
 const LAUGH_INCREASE_SPEED_EXP = 1.1
 const LAUGH_SPEED_INCREASE_INTERVAL = 5
@@ -18,7 +18,9 @@ static var laugh_per_second:float = BASE_LAUGH_INCREASE_SPEED:
 		laugh_per_second=clamp(val, 0.0, MAX_LAUGH_INCREASE_SPEED)
 
 func _ready():
-	value=INITIAL_LAUGH
+	laugh=INITIAL_LAUGH
+	laugh_per_second=BASE_LAUGH_INCREASE_SPEED
+	value=ease_out_quint(INITIAL_LAUGH/100)*100
 	$Timer.wait_time = LAUGH_SPEED_INCREASE_INTERVAL
 	$Timer.start()
 

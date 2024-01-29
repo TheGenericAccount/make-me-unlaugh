@@ -4,7 +4,12 @@ class_name ConverterPickup
 
 @export var needs_to_fulfill:int=1
 @export var accepted_items:Array[Script]
-var inserted_items:int=0
+var inserted_items:int=0:
+	set(value):
+		inserted_items=value
+		var cloud=get_node_or_null("Cloud")
+		if cloud:
+			$Cloud.visible=value>0
 var fulfilled:bool:
 	get:
 		return inserted_items>=needs_to_fulfill
@@ -17,6 +22,9 @@ var fulfilled:bool:
 signal item_inserted()
 
 func _ready():
+	var cloud=get_node_or_null("Cloud")
+	if cloud:
+		cloud.visible=false
 	body_entered.connect(_body_entered)
 
 func _body_entered(body:Node2D):

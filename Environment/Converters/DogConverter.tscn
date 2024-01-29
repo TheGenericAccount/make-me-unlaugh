@@ -1,14 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://brfv1oxwe3r4f"]
+[gd_scene load_steps=17 format=3 uid="uid://brfv1oxwe3r4f"]
 
 [ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="1_13ojq"]
 [ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="2_bax3h"]
 [ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="3_n20qg"]
+[ext_resource type="Texture2D" uid="uid://s6ckhivpa3j0" path="res://Environment/Converters/Cloud.png" id="4_s5er1"]
 [ext_resource type="Script" path="res://Environment/Items/Pencil/Pencil.gd" id="4_sehpy"]
+[ext_resource type="Texture2D" uid="uid://utxmf3fvb13d" path="res://Environment/Items/Pencil/pencils.png" id="5_eh51i"]
 [ext_resource type="Script" path="res://Levels/ConverterSpawn.gd" id="5_yes33"]
 [ext_resource type="PackedScene" uid="uid://bmvi18i5nm2k2" path="res://Environment/Items/DogItem/DogItem.tscn" id="6_821yw"]
+[ext_resource type="FontFile" uid="uid://cwqed0vvy07um" path="res://Environment/Menu/PaytoneOne-Regular.ttf" id="6_wn12h"]
 [ext_resource type="AudioStream" uid="uid://cogb128gwxkog" path="res://Sound/SFX/ShootOut.ogg" id="7_bwx5g"]
 [ext_resource type="PackedScene" uid="uid://b87q3f8c22b6h" path="res://Environment/Items/Tear/TearItem.tscn" id="7_rqsk5"]
 [ext_resource type="Texture2D" uid="uid://brhbmfx2aamlq" path="res://Environment/Converters/puppycage.png" id="8_gudn1"]
+[ext_resource type="Texture2D" uid="uid://b4gy7duygyi62" path="res://Environment/Items/ToiletPaper/bogroll1.png" id="8_kwnkd"]
 [ext_resource type="AudioStream" uid="uid://dxccx3cjdhj6s" path="res://Sound/SFX/Crying.ogg" id="9_2tpgw"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="9_phfqn"]
 
@@ -27,21 +31,94 @@ continuous_cd = 2
 linear_damp = 1.0
 script = ExtResource("1_13ojq")
 
-[node name="PickupTop" type="Area2D" parent="."]
+[node name="PickupRight" type="Area2D" parent="."]
 script = ExtResource("2_bax3h")
 accepted_items = Array[Script]([ExtResource("3_n20qg")])
 metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupTop"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupRight"]
 polygon = PackedVector2Array(-67, -47, -46, -2, -67, 46)
 
-[node name="PickupRight" type="Area2D" parent="."]
+[node name="Cloud" type="Control" parent="PickupRight"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -164.0
+offset_top = -41.0
+offset_right = -84.0
+offset_bottom = 39.0
+
+[node name="TextureRect" type="TextureRect" parent="PickupRight/Cloud"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_s5er1")
+
+[node name="TextureRect2" type="TextureRect" parent="PickupRight/Cloud/TextureRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 11.0
+offset_right = 59.0
+offset_bottom = 54.0
+texture = ExtResource("8_kwnkd")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PickupRight/Cloud/TextureRect"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 53.0
+offset_right = 67.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_wn12h")
+text = "1/1"
+
+[node name="PickupTop2" type="Area2D" parent="."]
 script = ExtResource("2_bax3h")
 accepted_items = Array[Script]([ExtResource("4_sehpy")])
 metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupRight"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupTop2"]
 polygon = PackedVector2Array(-51, -69, -3, -42, 51, -69)
+
+[node name="Cloud" type="Control" parent="PickupTop2"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -40.0
+offset_top = -161.0
+offset_right = 40.0
+offset_bottom = -81.0
+
+[node name="TextureRect" type="TextureRect" parent="PickupTop2/Cloud"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_s5er1")
+
+[node name="TextureRect2" type="TextureRect" parent="PickupTop2/Cloud/TextureRect"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 11.0
+offset_right = 60.0
+offset_bottom = 54.0
+texture = ExtResource("5_eh51i")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="PickupTop2/Cloud/TextureRect"]
+offset_left = 27.0
+offset_top = 53.0
+offset_right = 67.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_wn12h")
+text = "1/1"
 
 [node name="Spawner" type="Node2D" parent="."]
 position = Vector2(84, 2)

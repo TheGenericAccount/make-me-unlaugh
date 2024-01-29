@@ -17,6 +17,9 @@ const MOUSE_DAMP_THRESHOLD:float=200
 var initial_gravity_scale=1
 
 func _ready():
+	if !currently_dragged or not is_instance_valid(currently_dragged):
+		currently_dragged=null
+	mouse_drag_offset=Vector2.ZERO
 	parent.input_pickable=true;
 	MOUSE_DRAG_MULTIPLIER*=parent.mass*CONSTANTS_MULTIPLIER
 	MOUSE_DRAG_MAX_FORCE*=parent.mass*CONSTANTS_MULTIPLIER
@@ -24,11 +27,15 @@ func _ready():
 static func release():
 	if currently_dragged and is_instance_valid(currently_dragged):
 		currently_dragged.get_node("DragComponent")._release()
+	else:
+		currently_dragged=null;
 
 func _release():
+	print("release")
 	currently_dragged=null;
 	if UNFREEZE_WHILE_DRAGGING:
 		parent.freeze=true
+	print(initial_gravity_scale)
 	parent.gravity_scale=initial_gravity_scale;
 	parent.linear_damp=MOUSE_DEFAULT_DAMP
 
@@ -54,6 +61,7 @@ func _physics_process(_delta:float):
 		parent.apply_central_force(force_vector)
 
 func pick_up():
+	print("pick up")
 	currently_dragged=parent
 	if UNFREEZE_WHILE_DRAGGING:
 		parent.freeze=false

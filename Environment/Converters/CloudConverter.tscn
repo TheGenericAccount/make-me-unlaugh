@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ba0wgttcxqtsu"]
+[gd_scene load_steps=11 format=3 uid="uid://ba0wgttcxqtsu"]
 
 [ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="1_u7qvo"]
 [ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="2_swfh8"]
 [ext_resource type="Script" path="res://Environment/Items/Tear/TearItem.gd" id="3_0q260"]
+[ext_resource type="PackedScene" uid="uid://dymht78c3ogw8" path="res://Environment/Converters/cloud.tscn" id="4_u80dq"]
 [ext_resource type="Script" path="res://Levels/ConverterSpawn.gd" id="5_5d8am"]
 [ext_resource type="PackedScene" uid="uid://jy1komwamcpy" path="res://Environment/Items/Steam/SteamItem.tscn" id="5_mxorq"]
 [ext_resource type="AudioStream" uid="uid://cogb128gwxkog" path="res://Sound/SFX/ShootOut.ogg" id="6_jtrnw"]
@@ -28,6 +29,8 @@ metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PickupTop"]
 polygon = PackedVector2Array(-54, -73, -3, -42, 59, -71)
+
+[node name="Cloud" parent="PickupTop" instance=ExtResource("4_u80dq")]
 
 [node name="Spawner" type="Node2D" parent="."]
 position = Vector2(84, 2)

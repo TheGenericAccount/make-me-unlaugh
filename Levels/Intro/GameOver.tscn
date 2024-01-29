@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cd8d4aptbqglf"]
+[gd_scene load_steps=13 format=3 uid="uid://cd8d4aptbqglf"]
 
 [ext_resource type="Script" path="res://Levels/Intro/Comics1.gd" id="1_dulca"]
 [ext_resource type="Texture2D" uid="uid://b42201eyjl8ea" path="res://Levels/Intro/ComicsPngs/gj_game_over_over.jpg" id="2_ci8w3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Levels/Button.gd" id="4_uii1h"]
 [ext_resource type="AudioStream" uid="uid://wlqhajqwacal" path="res://Sound/SFX/CrowdLaugh1.ogg" id="5_rumxa"]
 [ext_resource type="AudioStream" uid="uid://8torayny12dj" path="res://Sound/SFX/CrowdLaugh2.ogg" id="6_riddf"]
+[ext_resource type="Script" path="res://Levels/GameOverTime.gd" id="7_3bpyc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dct1h"]
 
@@ -39,10 +40,10 @@ stretch_mode = 4
 
 [node name="Restart" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1664.0
-offset_top = 960.0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = 1639.0
+offset_top = 943.0
+offset_right = 1895.0
+offset_bottom = 1063.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_7jjot")
@@ -65,5 +66,18 @@ autoplay = true
 stream = ExtResource("6_riddf")
 volume_db = 10.0
 autoplay = true
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 971.0
+offset_right = 357.0
+offset_bottom = 1055.0
+theme_override_fonts/font = ExtResource("3_7jjot")
+theme_override_font_sizes/font_size = 60
+text = "Time 88:88"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_3bpyc")
 
 [connection signal="pressed" from="Restart" to="Restart" method="_on_pressed"]

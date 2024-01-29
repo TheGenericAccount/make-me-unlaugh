@@ -5,3 +5,5 @@ static var number_of_tools=0
 
 func _ready():
 	instance=self
+	number_of_items=0
+	number_of_tools=0

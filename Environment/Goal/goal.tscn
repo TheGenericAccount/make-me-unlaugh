@@ -17,7 +17,7 @@ polygon = PackedVector2Array(63, -25, 53, -29, -23, 34, 62, 55)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(44, -60, 48, -49, 64, -42, 63, 63, 34, 65, 3, 60, -26, 41, -44, 20, -59, -2, -55, -7, -44, 9, -32, 26, -10, 44, 8, 52, 32, 58, 57, 58, 59, -37, 41, -47, 34, -60)
+polygon = PackedVector2Array(64, -71, 64, -49, 64, -42, 63, 63, 34, 65, 3, 60, -26, 41, -44, 20, -59, -2, -55, -7, -44, 9, -32, 26, -10, 44, 8, 52, 32, 58, 57, 58, 59, -37, 41, -47, 40, -58)
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_a3yd3")

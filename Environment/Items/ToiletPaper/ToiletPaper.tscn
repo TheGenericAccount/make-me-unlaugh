@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmk6xsp5q3jh7"]
+[gd_scene load_steps=9 format=3 uid="uid://bmk6xsp5q3jh7"]
 
 [ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="1_f62pu"]
 [ext_resource type="Texture2D" uid="uid://b4gy7duygyi62" path="res://Environment/Items/ToiletPaper/bogroll1.png" id="2_sglak"]
+[ext_resource type="Script" path="res://Tools/RandomSprite.gd" id="3_ky6lj"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_w2o4k"]
 [ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_6jg26"]
+[ext_resource type="Texture2D" uid="uid://djub0wxlybshx" path="res://Environment/Items/ToiletPaper/bogroll2.png" id="4_vacdj"]
+[ext_resource type="Texture2D" uid="uid://boeu12t6p3pw3" path="res://Environment/Items/ToiletPaper/bogroll3.png" id="5_xve0s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o58at"]
 bounce = 0.1
@@ -18,6 +21,8 @@ script = ExtResource("1_f62pu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_sglak")
+script = ExtResource("3_ky6lj")
+options = Array[Texture]([ExtResource("2_sglak"), ExtResource("4_vacdj"), ExtResource("5_xve0s")])
 
 [node name="DragComponent" parent="." instance=ExtResource("3_w2o4k")]
 
