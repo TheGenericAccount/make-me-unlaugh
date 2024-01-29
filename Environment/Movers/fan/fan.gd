@@ -16,7 +16,6 @@ func _physics_process(delta):
 	for body:PhysicsBody2D in overlapping:
 		if body==self:
 			continue
-		print(body.collision_layer)
 		if body is RigidBody2D:
 			if body.get_node_or_null("ConveyorComponent")!=null:
 				continue

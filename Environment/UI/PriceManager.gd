@@ -19,7 +19,7 @@ static var supply={
 static var price_increase_probability={
 	"toilet-paper":0.1,
 	"pencil-pack":0.1,
-	"dog-item":.25,
+	"dog-item":0.15,
 	"tear-item":.25,
 	"steam-item":.25,
 	"trash-item":0.15
@@ -39,5 +39,5 @@ func _ready():
 func _process(delta):
 	$Supply.text=""
 	for item in supply:
-		$Supply.text+=str(supply[item])
+		$Supply.text+=item+" "+str(supply[item])
 		$Supply.text+="\n"

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0mdwqlpt1fgh"]
+
+[ext_resource type="Script" path="res://Levels/MouseGrab.gd" id="1_rc0iw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0v2id"]
+radius = 44.2832
+
+[node name="MouseHitbox" type="Area2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_rc0iw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0v2id")

@@ -24,7 +24,7 @@ texture = ExtResource("2_3vae8")
 
 [node name="RewardComponent" type="Node2D" parent="."]
 script = ExtResource("4_n1a7u")
-type = "trash-item"
+type = "dog-item"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-31, -18, -31, -6, -12, 30, -4, 31, 33, 11, 32, 4, 5, -33)
