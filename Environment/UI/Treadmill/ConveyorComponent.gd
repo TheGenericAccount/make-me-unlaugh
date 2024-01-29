@@ -19,5 +19,4 @@ func _process(delta):
 		instance.get_node("DragComponent").pick_up()
 		get_parent().queue_free()
 	if get_parent().global_position.y>1300 or get_parent().global_position.x>1450:
-		print(global_position.x)
 		get_parent().queue_free()

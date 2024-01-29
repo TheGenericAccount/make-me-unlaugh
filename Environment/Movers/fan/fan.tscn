@@ -63,7 +63,6 @@ MOUSE_CLOSE_DAMP = 80.0
 polygon = PackedVector2Array(-48, -5, -26, -19, 5, -22, 10, -59, 17, -66, 33, -66, 43, -58, 54, -36, 54, 37, 46, 57, 22, 66, 9, 60, 3, 22, -44, 8)
 
 [node name="WindArea" type="Area2D" parent="."]
-collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WindArea"]
 polygon = PackedVector2Array(41, -62, 400, -232, 412, 201, 54, 48)

@@ -32,5 +32,4 @@ func _body_entered(body:Node2D):
 		return
 	body.queue_free()
 	inserted_items+=1;
-	print("fulfilled ",body.name)
 	call_deferred("emit_signal", "item_inserted")

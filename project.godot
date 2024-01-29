@@ -13,7 +13,7 @@ config_version=5
 config/name="Make-me-unlaugh"
 run/main_scene="res://Levels/Intro/Comics1.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Environment/Items/DogItem/depressedpuppy.png"
 
 [autoload]
 

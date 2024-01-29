@@ -14,11 +14,12 @@ func _ready():
 func _physics_process(delta):
 	var overlapping=$WindArea.get_overlapping_bodies()
 	for body in overlapping:
+		print(body)
 		if body is RigidBody2D:
 			if body.get_node_or_null("ConveyorComponent")!=null:
 				return
-			if body.get_node_or_null("RewardComponent")==null:
-				return
+			#if body.get_node_or_null("RewardComponent")==null:
+			#	return
 			var distance=global_position.distance_to(body.global_position)
 			var force:Vector2=(body.global_position-global_position)
 			force.y*=Y_MULTIPLIER

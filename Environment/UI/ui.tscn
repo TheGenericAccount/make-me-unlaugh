@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://beli2n684dlmf" path="res://Environment/Boxes/fan_box.tscn" id="22_pc180"]
 [ext_resource type="Texture2D" uid="uid://ckw55ws7m5fps" path="res://Environment/UI/UI/CityState/City_State_Neutral.png" id="23_vhwlf"]
 [ext_resource type="Texture2D" uid="uid://caov8chodcfmk" path="res://Environment/UI/UI/UI_Main_background.png" id="24_q1wpk"]
-[ext_resource type="Script" path="res://Environment/UI/MainBg.gd" id="24_yon14"]
+[ext_resource type="Script" path="res://Environment/UI/PriceManager.gd" id="24_yon14"]
 [ext_resource type="Script" path="res://Environment/UI/Control.gd" id="31_88k5l"]
 [ext_resource type="Texture2D" uid="uid://d0mvamqpn3f76" path="res://Environment/Items/DogItem/depressedpuppy.png" id="32_bs7yi"]
 [ext_resource type="Texture2D" uid="uid://b4gy7duygyi62" path="res://Environment/Items/ToiletPaper/bogroll1.png" id="32_o5hsn"]
@@ -178,6 +178,7 @@ offset_left = 220.0
 offset_top = 307.0
 offset_right = 2140.0
 offset_bottom = 1387.0
+step = 0.01
 fill_mode = 3
 texture_progress = ExtResource("2_3jva2")
 script = ExtResource("3_fecir")
@@ -262,7 +263,7 @@ libraries = {
 "": SubResource("AnimationLibrary_qvkhy")
 }
 
-[node name="MainBg" type="TextureRect" parent="."]
+[node name="PriceManager" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -1300.0
 offset_top = 227.0
@@ -271,7 +272,7 @@ offset_bottom = 1307.0
 texture = ExtResource("24_q1wpk")
 script = ExtResource("24_yon14")
 
-[node name="Supply" type="Label" parent="MainBg"]
+[node name="Supply" type="Label" parent="PriceManager"]
 visible = false
 layout_mode = 0
 offset_left = 1675.0
@@ -279,24 +280,24 @@ offset_top = 296.0
 offset_right = 1882.0
 offset_bottom = 999.0
 
-[node name="SupplyTimer" type="Timer" parent="MainBg"]
+[node name="SupplyTimer" type="Timer" parent="PriceManager"]
 wait_time = 6.0
 autostart = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainBg"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PriceManager"]
 layout_mode = 0
 offset_left = 1677.0
 offset_top = 367.0
 offset_right = 1879.0
 offset_bottom = 1019.0
 
-[node name="PriceContainer" type="Control" parent="MainBg/VBoxContainer"]
+[node name="PriceContainer" type="Control" parent="PriceManager/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 script = ExtResource("31_88k5l")
 type = "toilet-paper"
 
-[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer"]
+[node name="ItemTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer"]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 1.0
@@ -304,7 +305,7 @@ offset_right = 97.0
 offset_bottom = 65.0
 texture = ExtResource("32_o5hsn")
 
-[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer"]
+[node name="PriceTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer"]
 layout_mode = 0
 offset_left = 119.0
 offset_top = 1.0
@@ -312,13 +313,13 @@ offset_right = 183.0
 offset_bottom = 65.0
 texture = ExtResource("32_bs7yi")
 
-[node name="PriceContainer2" type="Control" parent="MainBg/VBoxContainer"]
+[node name="PriceContainer2" type="Control" parent="PriceManager/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 script = ExtResource("31_88k5l")
 type = "pencil-pack"
 
-[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer2"]
+[node name="ItemTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer2"]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 1.0
@@ -326,7 +327,7 @@ offset_right = 97.0
 offset_bottom = 65.0
 texture = ExtResource("34_jqtbe")
 
-[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer2"]
+[node name="PriceTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer2"]
 layout_mode = 0
 offset_left = 119.0
 offset_top = 1.0
@@ -334,13 +335,13 @@ offset_right = 183.0
 offset_bottom = 65.0
 texture = ExtResource("32_bs7yi")
 
-[node name="PriceContainer3" type="Control" parent="MainBg/VBoxContainer"]
+[node name="PriceContainer3" type="Control" parent="PriceManager/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 script = ExtResource("31_88k5l")
 type = "dog-item"
 
-[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer3"]
+[node name="ItemTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer3"]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 1.0
@@ -348,7 +349,7 @@ offset_right = 97.0
 offset_bottom = 65.0
 texture = ExtResource("32_bs7yi")
 
-[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer3"]
+[node name="PriceTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer3"]
 layout_mode = 0
 offset_left = 119.0
 offset_top = 1.0
@@ -356,13 +357,13 @@ offset_right = 183.0
 offset_bottom = 65.0
 texture = ExtResource("32_bs7yi")
 
-[node name="PriceContainer4" type="Control" parent="MainBg/VBoxContainer"]
+[node name="PriceContainer4" type="Control" parent="PriceManager/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 script = ExtResource("31_88k5l")
 type = "tear-item"
 
-[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer4"]
+[node name="ItemTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer4"]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 1.0
@@ -370,7 +371,7 @@ offset_right = 97.0
 offset_bottom = 65.0
 texture = ExtResource("35_ddxoa")
 
-[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer4"]
+[node name="PriceTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer4"]
 layout_mode = 0
 offset_left = 119.0
 offset_top = 1.0
@@ -378,13 +379,13 @@ offset_right = 183.0
 offset_bottom = 65.0
 texture = ExtResource("32_bs7yi")
 
-[node name="PriceContainer5" type="Control" parent="MainBg/VBoxContainer"]
+[node name="PriceContainer5" type="Control" parent="PriceManager/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 script = ExtResource("31_88k5l")
 type = "steam-item"
 
-[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer5"]
+[node name="ItemTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer5"]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 1.0
@@ -392,7 +393,7 @@ offset_right = 97.0
 offset_bottom = 65.0
 texture = ExtResource("36_1fxcn")
 
-[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer5"]
+[node name="PriceTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer5"]
 layout_mode = 0
 offset_left = 119.0
 offset_top = 1.0
@@ -400,13 +401,13 @@ offset_right = 183.0
 offset_bottom = 65.0
 texture = ExtResource("32_bs7yi")
 
-[node name="PriceContainer6" type="Control" parent="MainBg/VBoxContainer"]
+[node name="PriceContainer6" type="Control" parent="PriceManager/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 script = ExtResource("31_88k5l")
 type = "trash-item"
 
-[node name="ItemTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer6"]
+[node name="ItemTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer6"]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 1.0
@@ -414,7 +415,7 @@ offset_right = 97.0
 offset_bottom = 65.0
 texture = ExtResource("38_60kid")
 
-[node name="PriceTexture" type="TextureRect" parent="MainBg/VBoxContainer/PriceContainer6"]
+[node name="PriceTexture" type="TextureRect" parent="PriceManager/VBoxContainer/PriceContainer6"]
 layout_mode = 0
 offset_left = 119.0
 offset_top = 1.0
@@ -430,6 +431,6 @@ offset_right = 620.0
 offset_bottom = 1307.0
 texture = ExtResource("4_wchga")
 
-[connection signal="timeout" from="ProgressTexture/Timer" to="ProgressTexture" method="_on_timer_timeout"]
+[connection signal="timeout" from="ProgressTexture/Timer" to="ProgressTexture" method="increase_laugh_per_second"]
 [connection signal="timeout" from="SupplyBoxDrop/Timer" to="SupplyBoxDrop" method="_on_timer_timeout"]
-[connection signal="timeout" from="MainBg/SupplyTimer" to="MainBg" method="_on_supply_timer_timeout"]
+[connection signal="timeout" from="PriceManager/SupplyTimer" to="PriceManager" method="_on_supply_timer_timeout"]

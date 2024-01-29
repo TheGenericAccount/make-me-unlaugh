@@ -17,12 +17,12 @@ static var supply={
 }
 
 static var price_increase_probability={
-	"toilet-paper":0.5,
-	"pencil-pack":0.5,
-	"dog-item":1,
-	"tear-item":1,
-	"steam-item":1,
-	"trash-item":0.7
+	"toilet-paper":0.1,
+	"pencil-pack":0.1,
+	"dog-item":.25,
+	"tear-item":.25,
+	"steam-item":.25,
+	"trash-item":0.15
 }
 
 func _on_supply_timer_timeout():
