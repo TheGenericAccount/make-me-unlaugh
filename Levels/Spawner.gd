@@ -20,6 +20,7 @@ func _on_timer_timeout():
 	spawn()
 	var total_items=max(0, ItemParent.number_of_items-SPAWN_THROTTLE_BEGIN)
 	$Timer.wait_time=SPAWN_INTERVAL*pow(SPAWN_THROTTLE_BASE, total_items)
+	$Timer.start()
 
 func spawn()->void:
 	if(items_spawned>MAX_TO_SPAWN):
