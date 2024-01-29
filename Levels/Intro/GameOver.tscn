@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=3 uid="uid://cd8d4aptbqglf"]
+
+[ext_resource type="Script" path="res://Levels/Intro/Comics1.gd" id="1_dulca"]
+[ext_resource type="Texture2D" uid="uid://b42201eyjl8ea" path="res://Levels/Intro/ComicsPngs/gj_game_over_over.jpg" id="2_ci8w3"]
+[ext_resource type="FontFile" uid="uid://cwqed0vvy07um" path="res://Environment/Menu/PaytoneOne-Regular.ttf" id="3_7jjot"]
+[ext_resource type="Script" path="res://Levels/Button.gd" id="4_uii1h"]
+[ext_resource type="AudioStream" uid="uid://wlqhajqwacal" path="res://Sound/SFX/CrowdLaugh1.ogg" id="5_rumxa"]
+[ext_resource type="AudioStream" uid="uid://8torayny12dj" path="res://Sound/SFX/CrowdLaugh2.ogg" id="6_riddf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dct1h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qey1q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jofd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ukru4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5bmk1"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dulca")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ci8w3")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1664.0
+offset_top = 960.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_7jjot")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dct1h")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qey1q")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8jofd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ukru4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5bmk1")
+text = "Restart"
+script = ExtResource("4_uii1h")
+game = "res://Levels/game.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rumxa")
+volume_db = 10.0
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_riddf")
+volume_db = 10.0
+autoplay = true
+
+[connection signal="pressed" from="Restart" to="Restart" method="_on_pressed"]

@@ -5,7 +5,7 @@ const BASE_LAUGH_INCREASE_SPEED = 1
 const MAX_LAUGH_INCREASE_SPEED = 10
 const LAUGH_INCREASE_SPEED_EXP = 1.1
 const LAUGH_SPEED_INCREASE_INTERVAL = 5
-const INITIAL_LAUGH=30
+const INITIAL_LAUGH=20
 
 static var laugh:float = INITIAL_LAUGH:
 	set(val):
@@ -22,6 +22,8 @@ func _ready():
 func _process(delta):
 	laugh+=delta*laugh_per_second
 	value=ease_out_quint(laugh/100)*100
+	if laugh>=100:
+		Transition.change_scene(preload("res://Levels/Intro/GameOver.tscn").instantiate())
 
 func ease_out_quint(x: float)->float:
 	return 1 - pow(1 - x, 5);

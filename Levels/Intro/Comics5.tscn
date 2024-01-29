@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dq1bvi8sos14l"]
 
-[ext_resource type="Texture2D" uid="uid://bwygveimubyqi" path="res://Levels/Intro/ComicsPngs/img_5.png" id="1_65mtq"]
+[ext_resource type="Texture2D" uid="uid://cy177eugo7cid" path="res://Levels/Intro/ComicsPngs/img_5.png" id="1_65mtq"]
 [ext_resource type="FontFile" uid="uid://cwqed0vvy07um" path="res://Environment/Menu/PaytoneOne-Regular.ttf" id="2_gtqgs"]
 [ext_resource type="Script" path="res://Levels/Button.gd" id="3_fdfmh"]
 

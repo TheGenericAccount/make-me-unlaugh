@@ -1,7 +1,7 @@
 extends ColorRect
 var current_scene
 var changing_scene
-func change_scene(scene):
+func change_scene(scene:Node):
 	$AnimationPlayer.play("UnFade")
 	changing_scene=scene
 

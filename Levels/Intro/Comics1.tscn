@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://cwqed0vvy07um" path="res://Environment/Menu/PaytoneOne-Regular.ttf" id="1_a5gkt"]
 [ext_resource type="Script" path="res://Levels/Intro/Comics1.gd" id="1_gvtbg"]
-[ext_resource type="Texture2D" uid="uid://qmx37tfnmcg2" path="res://Levels/Intro/ComicsPngs/img_1.png" id="2_8g4ve"]
+[ext_resource type="Texture2D" uid="uid://devcn35sfufrv" path="res://Levels/Intro/ComicsPngs/img_1.png" id="2_8g4ve"]
 [ext_resource type="Script" path="res://Levels/Button.gd" id="3_yysyr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dct1h"]
