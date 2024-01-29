@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cquahwesqdl37"]
+[gd_scene load_steps=10 format=3 uid="uid://cquahwesqdl37"]
 
 [ext_resource type="PackedScene" uid="uid://ci3153isbxxtg" path="res://Environment/Goal/goal.tscn" id="1_nuy61"]
 [ext_resource type="Texture2D" uid="uid://bgpachfe10kpg" path="res://Environment/Background/planks.png" id="1_wirce"]
 [ext_resource type="Texture2D" uid="uid://dbese6072xpsw" path="res://Environment/Box.png" id="3_trlrp"]
 [ext_resource type="PackedScene" uid="uid://bwu3w67ptxvt3" path="res://Environment/UI/ui.tscn" id="7_hol5f"]
 [ext_resource type="PackedScene" uid="uid://boaufbfxdejk2" path="res://Environment/Dispensers/item_dispenser.tscn" id="7_uf3lm"]
-[ext_resource type="PackedScene" uid="uid://dyqwcf0xohajt" path="res://Environment/Movers/fan/fan.tscn" id="10_226rq"]
 [ext_resource type="PackedScene" uid="uid://bv5d0wbsblgpe" path="res://Environment/Dispensers/PencilDispenser.tscn" id="16_j4was"]
 [ext_resource type="Script" path="res://Environment/Items/ItemParent.gd" id="16_xxgvq"]
 
@@ -96,6 +95,3 @@ position = Vector2(1216, 1013)
 
 [node name="ToiletPaperSpawner" parent="." instance=ExtResource("7_uf3lm")]
 position = Vector2(211, 58)
-
-[node name="Fan" parent="." instance=ExtResource("10_226rq")]
-position = Vector2(234, 775)

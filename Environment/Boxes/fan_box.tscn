@@ -12,7 +12,7 @@ bounce = 0.1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfem1"]
 size = Vector2(128, 130)
 
-[node name="ConveyorBox" type="RigidBody2D"]
+[node name="FanBox" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_o58at")
 lock_rotation = true
 continuous_cd = 2

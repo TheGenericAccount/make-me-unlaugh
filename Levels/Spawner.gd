@@ -7,16 +7,20 @@ extends Node2D
 @export var X_SPREAD:float=100
 const SPAWN_THROTTLE_BASE=2
 const SPAWN_THROTTLE_BEGIN=10
+const MAX_SPAWN_INTERVAL=60
 var items_spawned=0
 
 func _ready():
-	$Timer.wait_time=max(1, SPAWN_INTERVAL+randf_range(-1, 1))
+	$Timer.wait_time=max(1, SPAWN_INTERVAL+randf_range(-0.1, 0.1))
 	$Timer.start()
 	return
 	if(SPAWN_INSTANTLY):
 		spawn()
 
 func _on_timer_timeout():
+	var sound=get_node_or_null("Sound")
+	if sound:
+		sound.play()
 	spawn()
 	var total_items=max(0, ItemParent.number_of_items-SPAWN_THROTTLE_BEGIN)
 	$Timer.wait_time=SPAWN_INTERVAL*pow(SPAWN_THROTTLE_BASE, total_items)

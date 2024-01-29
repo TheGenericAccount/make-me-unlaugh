@@ -37,7 +37,6 @@ animations = [{
 
 [node name="Fan" type="RigidBody2D"]
 disable_mode = 1
-collision_mask = 3
 mass = 3.0
 can_sleep = false
 lock_rotation = true

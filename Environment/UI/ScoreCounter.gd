@@ -21,7 +21,10 @@ func _ready():
 
 func _process(delta):
 	laugh+=delta*laugh_per_second
-	value=ease_out_sine(laugh/100)*100
+	value=ease_out_quint(laugh/100)*100
+
+func ease_out_quint(x: float)->float:
+	return 1 - pow(1 - x, 5);
 
 
 func ease_out_sine(x:float)->float:

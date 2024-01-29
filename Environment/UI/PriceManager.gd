@@ -1,6 +1,6 @@
 extends TextureRect
 class_name PriceManager
-const MAX_SUPPLY = 30
+static var MAX_SUPPLY = 20
 const VALUE_PER_DEMAND = 2
 const MIN_PRICE=5
 static func sell(type:String):
@@ -8,12 +8,12 @@ static func sell(type:String):
 	supply[type]+=1
 
 static var supply={
-	"toilet-paper":25,
-	"pencil-pack":25,
-	"dog-item":10,
-	"tear-item":20,
+	"toilet-paper":15,
+	"pencil-pack":15,
+	"dog-item":0,
+	"tear-item":10,
 	"steam-item":0,
-	"trash-item":15,
+	"trash-item":10,
 }
 
 static var price_increase_probability={
@@ -29,7 +29,7 @@ func _on_supply_timer_timeout():
 	for item in supply:
 		if randf()<price_increase_probability[item]:
 			supply[item]+=randi_range(-3,1)
-			supply[item]=min(0, supply[item])
+			supply[item]=max(0, supply[item])
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

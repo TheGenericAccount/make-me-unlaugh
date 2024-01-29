@@ -1,7 +1,7 @@
 extends TextureRect
 
 const NEUTRAL_START = 30
-const NEUTRAL_END = 70
+const NEUTRAL_END = 60
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,3 +15,11 @@ func _process(delta):
 	elif ScoreCounter.laugh > NEUTRAL_END:
 		$AnimationPlayer.play("Happy")
 	else: $AnimationPlayer.play("Neutral")
+
+
+func _on_laugh_timer_timeout():
+	if ScoreCounter.laugh>NEUTRAL_END:
+		if randi()%2==0:
+			$Sound1.play()
+		else:
+			$Sound2.play()

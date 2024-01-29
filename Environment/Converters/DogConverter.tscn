@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brfv1oxwe3r4f"]
+[gd_scene load_steps=13 format=3 uid="uid://brfv1oxwe3r4f"]
 
 [ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="1_13ojq"]
 [ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="2_bax3h"]
@@ -6,8 +6,10 @@
 [ext_resource type="Script" path="res://Environment/Items/Pencil/Pencil.gd" id="4_sehpy"]
 [ext_resource type="Script" path="res://Levels/ConverterSpawn.gd" id="5_yes33"]
 [ext_resource type="PackedScene" uid="uid://bmvi18i5nm2k2" path="res://Environment/Items/DogItem/DogItem.tscn" id="6_821yw"]
+[ext_resource type="AudioStream" uid="uid://cogb128gwxkog" path="res://Sound/SFX/ShootOut.ogg" id="7_bwx5g"]
 [ext_resource type="PackedScene" uid="uid://b87q3f8c22b6h" path="res://Environment/Items/Tear/TearItem.tscn" id="7_rqsk5"]
 [ext_resource type="Texture2D" uid="uid://brhbmfx2aamlq" path="res://Environment/Converters/puppycage.png" id="8_gudn1"]
+[ext_resource type="AudioStream" uid="uid://dxccx3cjdhj6s" path="res://Sound/SFX/Crying.ogg" id="9_2tpgw"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="9_phfqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rt0jo"]
@@ -47,11 +49,23 @@ script = ExtResource("5_yes33")
 resource_to_spawn = ExtResource("6_821yw")
 initial_velocity = Vector2(500, 100)
 
+[node name="Sound" type="AudioStreamPlayer2D" parent="Spawner"]
+stream = ExtResource("7_bwx5g")
+volume_db = 5.0
+pitch_scale = 2.62
+max_polyphony = 99
+
 [node name="Spawner2" type="Node2D" parent="."]
 position = Vector2(0, 77)
 script = ExtResource("5_yes33")
 resource_to_spawn = ExtResource("7_rqsk5")
 rotation_spread = 50.0
+
+[node name="Sound2" type="AudioStreamPlayer2D" parent="Spawner2"]
+position = Vector2(84, -75)
+stream = ExtResource("9_2tpgw")
+volume_db = 5.0
+max_polyphony = 99
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, -3.5)

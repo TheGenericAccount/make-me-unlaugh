@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://yhl37cfslsht"]
+[gd_scene load_steps=14 format=3 uid="uid://yhl37cfslsht"]
 
 [ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="1_brpth"]
 [ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="2_83qcg"]
@@ -11,11 +11,12 @@
 [ext_resource type="Script" path="res://Environment/Items/ToiletPaper/ToiletPaper.gd" id="7_aiu5k"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="7_vd1gi"]
 [ext_resource type="PackedScene" uid="uid://ckojpwiia0oc8" path="res://Environment/Items/Waste/WasteItem.tscn" id="9_qt87e"]
+[ext_resource type="AudioStream" uid="uid://cogb128gwxkog" path="res://Sound/SFX/ShootOut.ogg" id="10_v17kc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rt0jo"]
 size = Vector2(123, 127)
 
-[node name="CloudConverter" type="RigidBody2D"]
+[node name="WasteConverter" type="RigidBody2D"]
 disable_mode = 1
 collision_layer = 2
 collision_mask = 3
@@ -37,6 +38,10 @@ position = Vector2(-96, -1)
 script = ExtResource("4_sm2b7")
 resource_to_spawn = ExtResource("9_qt87e")
 initial_velocity = Vector2(-1000, 0)
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Spawner"]
+stream = ExtResource("10_v17kc")
+max_polyphony = 99
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, -3.5)

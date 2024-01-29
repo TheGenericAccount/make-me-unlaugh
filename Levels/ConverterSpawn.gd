@@ -10,6 +10,9 @@ class_name ConverterSpawn extends Node2D
 func spawn(use_item_parent=true)->void:
 	if(randf()>probability):
 		return
+	var sound=get_node_or_null("Sound")
+	if sound:
+		sound.play()
 	var item_parent=ItemParent.instance if use_item_parent else get_parent()
 	var instance:RigidBody2D=resource_to_spawn.instantiate()
 	item_parent.add_child(instance)

@@ -16,4 +16,5 @@ func _on_body_entered(body:Node2D):
 	if reward_component==null:
 		return
 	reward_component.assign_reward();
+	$Sound.play()
 	body.queue_free();

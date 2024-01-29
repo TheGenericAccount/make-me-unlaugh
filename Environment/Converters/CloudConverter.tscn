@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ba0wgttcxqtsu"]
+[gd_scene load_steps=10 format=3 uid="uid://ba0wgttcxqtsu"]
 
 [ext_resource type="Script" path="res://Environment/Converters/Converter.gd" id="1_u7qvo"]
 [ext_resource type="Script" path="res://Levels/ConverterPickup.gd" id="2_swfh8"]
 [ext_resource type="Script" path="res://Environment/Items/Tear/TearItem.gd" id="3_0q260"]
 [ext_resource type="Script" path="res://Levels/ConverterSpawn.gd" id="5_5d8am"]
 [ext_resource type="PackedScene" uid="uid://jy1komwamcpy" path="res://Environment/Items/Steam/SteamItem.tscn" id="5_mxorq"]
+[ext_resource type="AudioStream" uid="uid://cogb128gwxkog" path="res://Sound/SFX/ShootOut.ogg" id="6_jtrnw"]
 [ext_resource type="Texture2D" uid="uid://dkhxdogl761v6" path="res://Environment/Converters/steamer.png" id="7_jktt6"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="9_uxhuk"]
 
@@ -33,6 +34,11 @@ position = Vector2(84, 2)
 script = ExtResource("5_5d8am")
 resource_to_spawn = ExtResource("5_mxorq")
 initial_velocity = Vector2(250, -200)
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Spawner"]
+stream = ExtResource("6_jtrnw")
+volume_db = 10.306
+pitch_scale = 0.68
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, -3.5)

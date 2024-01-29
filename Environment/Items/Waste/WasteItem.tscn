@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ckojpwiia0oc8"]
 
-[ext_resource type="Script" path="res://Environment/Items/DogItem/DogItem.gd" id="1_1vfr3"]
+[ext_resource type="Script" path="res://Environment/Items/Waste/WasteItem.gd" id="1_520yn"]
 [ext_resource type="Texture2D" uid="uid://q3pfjswvdo5v" path="res://Environment/Items/Waste/puppyremains.png" id="2_1xecr"]
 [ext_resource type="PackedScene" uid="uid://b15dlhqm4glp5" path="res://Environment/Items/drag_component.tscn" id="3_4p6u4"]
 [ext_resource type="Script" path="res://Environment/Items/RewardComponent.gd" id="4_av3in"]
@@ -15,7 +15,7 @@ physics_material_override = SubResource("PhysicsMaterial_o58at")
 continuous_cd = 2
 linear_damp = 1.0
 angular_damp = 1.0
-script = ExtResource("1_1vfr3")
+script = ExtResource("1_520yn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_1xecr")
